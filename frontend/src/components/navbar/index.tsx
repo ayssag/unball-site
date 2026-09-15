@@ -2,6 +2,7 @@ import { alpha, MenuList, MenuItem } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { FlexBoxBetween } from "@/shared/styled";
 import { NavButton } from "./NavButton";
+import LogoLink from "./LogoLink";
 import LanguageSwitch from "./LanguageSwitch";
 import theme from "@/theme";
 import Logo from '@/assets/unball-logo.png';
@@ -27,10 +28,12 @@ const Navbar = ({ isTop }: Props) => {
                     borderBottom: `.71px solid ${alpha(theme.palette.secondary.main, 0.4)}`,
                 }}
             >
-                <FlexBoxBetween sx={{ gap: 2 }}>
-                    <img src={Logo} alt="Logo da UnBall" width={40} />
-                    <h2 style={{ color: `${theme.palette.primary.main}` }}>UnBall</h2>
-                </FlexBoxBetween>
+                <LogoLink to={getRoutePath('home', currentLang)}>
+                    <FlexBoxBetween sx={{ gap: 2 }}>
+                        <img src={Logo} alt="Logo da UnBall" width={40} />
+                        <h2 style={{ color: `${theme.palette.primary.main}` }}>UnBall</h2>
+                    </FlexBoxBetween>
+                </LogoLink>
                 <FlexBoxBetween sx={{ gap: 3 }}>
                     <MenuList 
                         sx={{ 
