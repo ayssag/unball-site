@@ -1,8 +1,8 @@
 import { Box } from "@mui/material";
-import styled from "@emotion/styled";
+import { styled } from "@mui/material/styles";
 
-export const FlexBoxBetween = styled(Box)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
+export const FlexBoxBetween = styled(Box)({
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+});

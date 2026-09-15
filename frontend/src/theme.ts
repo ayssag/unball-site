@@ -58,6 +58,7 @@ export const theme = createTheme({
     },
     h6: {
       fontFamily: "'Space Mono', monospace",
+      fontSize: '1rem',
     },
   },
   components: {
@@ -77,51 +78,6 @@ export const theme = createTheme({
         },
       },
     },
-    // MuiButton: {
-    //   styleOverrides: {
-    //     root: {
-    //       borderRadius: 10,
-    //       padding: '8px 22px',
-    //       fontSize: '0.95rem',
-    //       boxShadow: 'none',
-    //       transition: 'all 0.2s ease-in-out',
-    //       '&:hover': {
-    //         boxShadow: '0px 6px 16px rgba(30, 64, 175, 0.25)',
-    //         transform: 'translateY(-1px)',
-    //       },
-    //     },
-    //     contained: ({ ownerState, theme }) => ({
-    //       ...(ownerState.color === 'primary' && {
-    //         background: `linear-gradient(135deg, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
-    //       }),
-    //       ...(ownerState.color === 'secondary' && {
-    //         background: `linear-gradient(135deg, ${theme.palette.secondary.dark} 0%, ${theme.palette.secondary.main} 100%)`,
-    //         color: '#ffffff',
-    //       }),
-    //     }),
-    //   },
-    // },
-    // MuiCard: {
-    //   styleOverrides: {
-    //     root: {
-    //       borderRadius: 16,
-    //       boxShadow: '0 10px 30px -5px rgba(0, 0, 0, 0.05)',
-    //       border: '1px solid rgba(226, 232, 240, 0.8)',
-    //       transition: 'all 0.3s ease',
-    //       '&:hover': {
-    //         boxShadow: '0 20px 40px -15px rgba(0, 0, 0, 0.1)',
-    //       },
-    //     },
-    //   },
-    // },
-    // MuiChip: {
-    //   styleOverrides: {
-    //     root: {
-    //       fontWeight: 600,
-    //       borderRadius: 8,
-    //     },
-    //   },
-    // },
   },
 })
 
