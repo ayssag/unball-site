@@ -1,5 +1,8 @@
-function about() {
-    return <h1>Sobre Nós</h1>
+import { useTranslation } from 'react-i18next';
+
+function About() {
+  const { t } = useTranslation();
+  return <h1>{t('pages.about.title')}</h1>;
 }
 
-export default about
+export default About;
