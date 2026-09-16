@@ -2,7 +2,6 @@ import { Typography, Box, Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import HeroImage from "@/assets/images/unbolinha/bolinha_sentado.png";
 import { FlexBoxBetween } from "@/shared/styled";
-import { PrimaryButtonFilled } from "@/components/ui/PrimaryButton";
 
 function HeroSection() {
     const { t } = useTranslation();
