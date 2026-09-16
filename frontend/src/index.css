@@ -1,0 +1,13 @@
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+body {
+  background-color: #07192E;
+  background-image:
+    linear-gradient(rgba(64, 165, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(64, 165, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
