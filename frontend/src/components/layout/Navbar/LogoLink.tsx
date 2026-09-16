@@ -6,5 +6,3 @@ export const LogoLink = styled(Link)({
   display: "flex",
   alignItems: "center",
 });
-
-export default LogoLink;

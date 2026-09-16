@@ -2,7 +2,8 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Box } from '@mui/material';
 import '@/i18n';
 import LanguageGuard from '@/i18n/LanguageGuard';
-import Navbar from './components/navbar';
+import Navbar from './components/layout/Navbar';
+import SystemStatus from './components/layout/SystemStatus';
 import Home from './components/pages/home';
 import About from './components/pages/about';
 import Papers from './components/pages/papers';
@@ -14,17 +15,14 @@ function App() {
     <BrowserRouter>
       <Box
         sx={{
-          width: '100vw',
-          height: '100vh',
-          backgroundColor: 'background.default',
-          backgroundImage: `
-            linear-gradient(rgba(64, 165, 255, 0.04) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(64, 165, 255, 0.04) 1px, transparent 1px)
-          `,
-          backgroundSize: '40px 40px',
+          width: '100%',
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
         }}
       >
         <Navbar isTop={true} />
+        <SystemStatus />
         <Routes>
           <Route path="/" element={<Navigate to="/pt" replace />} />
           <Route path="/:lang" element={<LanguageGuard />}>

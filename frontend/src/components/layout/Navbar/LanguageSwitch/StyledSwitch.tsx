@@ -1,11 +1,7 @@
-import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { Switch } from '@mui/material';
-import { styled, alpha } from '@mui/material/styles';
-import { getEquivalentPath, type SupportedLang } from '@/i18n/routesMap';
+import { styled, alpha } from "@mui/material/styles";
+import { Switch } from "@mui/material";
 
-const StyledSwitch = styled(Switch)(({ theme }) => ({
+export const StyledSwitch = styled(Switch)(({ theme }) => ({
   width: 74,
   height: 32,
   padding: 0,
@@ -76,28 +72,3 @@ const StyledSwitch = styled(Switch)(({ theme }) => ({
     },
   },
 }));
-
-export const LanguageSwitch: React.FC = () => {
-  const { i18n } = useTranslation();
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  const isEn = i18n.language?.startsWith('en');
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const targetLang: SupportedLang = event.target.checked ? 'en' : 'pt';
-    const targetPath = getEquivalentPath(location.pathname, targetLang);
-
-    i18n.changeLanguage(targetLang);
-    navigate(targetPath);
-  };
-
-  return (
-    <StyledSwitch
-      checked={Boolean(isEn)}
-      onChange={handleChange}
-    />
-  );
-};
-
-export default LanguageSwitch;
