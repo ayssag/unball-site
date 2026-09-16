@@ -1,10 +1,10 @@
+import { alpha } from "@mui/material"
 import { createTheme } from '@mui/material/styles'
 import '@fontsource/inter'
 import '@fontsource/bungee'
 import '@fontsource/space-mono'
 
-export const theme = createTheme({
-  palette: {
+const palette = {
     primary: {
       main: '#E3873E',
       contrastText: '#F4F7F6',
@@ -33,7 +33,10 @@ export const theme = createTheme({
     success: {
       main: '#83e32eff',
     },
-  },
+  }
+
+export const theme = createTheme({
+  palette,
   typography: {
     fontFamily: [
       'Inter',
@@ -77,6 +80,43 @@ export const theme = createTheme({
           fontFamily: "'Space Mono', monospace",
         },
       },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          fontFamily: "'Space Mono', monospace",
+        },
+      },
+      variants: [
+        {
+          props: { 
+            variant: "contained",
+          },
+          style: {
+            backgroundColor: "#C55B14",
+            borderRadius: 0,
+            "&:hover": {
+              backgroundColor: "#833e10ff",
+            }
+          }
+        },
+        {
+          props: {
+            variant: "outlined",
+          },
+          style: {
+            backgroundColor: "transparent",
+            borderRadius: 0,
+            border: "1px solid",
+            borderColor: palette.primary.main,
+            color: palette.primary.main,
+            "&:hover": {
+              backgroundColor: alpha(palette.text.primary, 0.1)
+            }
+            
+          }
+        }
+      ]
     },
   },
 })
