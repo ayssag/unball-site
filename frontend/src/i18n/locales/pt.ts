@@ -8,7 +8,7 @@ export const pt = {
   },
   pages: {
     home: {
-      title: 'Início',
+      title: '#Vem Pra UnBall',
     },
     about: {
       title: 'Sobre Nós',

@@ -5,7 +5,7 @@ import { NavButton } from "./NavButton";
 import { LogoLink } from "./LogoLink";
 import { LanguageSwitch } from "./LanguageSwitch";
 import theme from "@/theme";
-import Logo from '@/assets/unball-logo.png';
+import Logo from '@/assets/images/logos/unball-logo.png';
 import { getRoutePath, type SupportedLang } from "@/i18n/routesMap";
 
 type Props = {
