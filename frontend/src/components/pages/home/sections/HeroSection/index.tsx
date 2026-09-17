@@ -1,9 +1,9 @@
 import { Typography, Box, Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import HeroImage from "@/assets/images/unbolinha/bolinha_sentado.png";
 import { FlexBoxBetween } from "@/shared/styled";
 import { getRoutePath, type SupportedLang } from "@/i18n/routesMap";
+import HeroImage from "./HeroImage";
 
 function HeroSection() {
     const { t, i18n } = useTranslation();
@@ -12,7 +12,11 @@ function HeroSection() {
     return (
         <FlexBoxBetween 
             sx={{ 
-                paddingX: 12,
+                paddingX: { xs: 3, sm: 6, md: 12 },
+                paddingY: { xs: 4, md: 6 },
+                flexDirection: { xs: "column-reverse", md: "row" },
+                gap: { xs: 6, md: 4 },
+                alignItems: "center",
                 color: "text.primary"
             }}
         >
@@ -20,13 +24,15 @@ function HeroSection() {
                 sx={{
                     display: "flex",
                     flexDirection: "column",
-                    gap: 3
+                    gap: 3,
+                    flex: 1,
+                    maxWidth: { md: "50%" }
                 }}
             >
                 <Typography variant="h6">{t("pages.home.subtitle")}</Typography>
                 <Typography variant="h1" color="primary">{t('pages.home.title')}</Typography>
                 <Typography>Somos a UnBall, uma equipe de futebol de robôs e projeto de extensão formado por estudantes da Universidade de Brasília que compete nas categorias da Robocup Brasil.</Typography>
-                <Box sx={{ display: "flex", gap: 2 }}>
+                <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
                     <Button 
                         component={Link} 
                         to={getRoutePath('partners', currentLang)} 
@@ -43,9 +49,8 @@ function HeroSection() {
                     </Button>
                 </Box>
             </Box>
-            <Box>
-                <img src={HeroImage} alt="UnBolinha, Mascote da UnBall" width={500} />
-            </Box>
+
+            <HeroImage />
         </FlexBoxBetween>
     );
 }
