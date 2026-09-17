@@ -1,26 +1,27 @@
 export const pt = {
   navbar: {
-    home: 'Início',
-    about: 'Sobre Nós',
-    papers: 'Publicações',
-    partners: 'Apoiadores',
-    contact: 'Contato',
+    home: "Início",
+    about: "Sobre Nós",
+    papers: "Publicações",
+    partners: "Apoiadores",
+    contact: "Contato",
   },
   pages: {
     home: {
-      title: '#Vem Pra UnBall',
+      title: "#Vem Pra UnBall",
+      subtitle: "// ROBOCUP BRASIL • VSSS • SSL"
     },
     about: {
-      title: 'Sobre Nós',
+      title: "Sobre Nós",
     },
     papers: {
-      title: 'Publicações',
+      title: "Publicações",
     },
     partners: {
-      title: 'Apoiadores',
+      title: "Apoiadores",
     },
     contact: {
-      title: 'Contato',
+      title: "Contato",
     },
   },
 };

@@ -1,26 +1,27 @@
 export const en = {
   navbar: {
-    home: 'Home',
-    about: 'About Us',
-    papers: 'Papers',
-    partners: 'Partners',
-    contact: 'Contact',
+    home: "Home",
+    about: "About Us",
+    papers: "Papers",
+    partners: "Partners",
+    contact: "Contact",
   },
   pages: {
     home: {
-      title: 'Home',
+      title: "# Let's Go UnBall",
+      subtitle: "// ROBOCUP BRAZIL • VSSS • SSL",
     },
     about: {
-      title: 'About Us',
+      title: "About Us",
     },
     papers: {
-      title: 'Papers',
+      title: "Papers",
     },
     partners: {
-      title: 'Partners',
+      title: "Partners",
     },
     contact: {
-      title: 'Contact',
+      title: "Contact",
     },
   },
 };

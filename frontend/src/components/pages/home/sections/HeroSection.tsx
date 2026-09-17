@@ -23,6 +23,7 @@ function HeroSection() {
                     gap: 3
                 }}
             >
+                <Typography variant="h6">{t("pages.home.subtitle")}</Typography>
                 <Typography variant="h1" color="primary">{t('pages.home.title')}</Typography>
                 <Typography>Somos a UnBall, uma equipe de futebol de robôs e projeto de extensão formado por estudantes da Universidade de Brasília que compete nas categorias da Robocup Brasil.</Typography>
                 <Box sx={{ display: "flex", gap: 2 }}>
