@@ -14,7 +14,7 @@ function HeroSection() {
             sx={{ 
                 paddingX: { xs: 3, sm: 6, md: 12 },
                 paddingY: { xs: 4, md: 6 },
-                flexDirection: { xs: "column-reverse", md: "row" },
+                flexDirection: { xs: "column", md: "row" },
                 gap: { xs: 6, md: 4 },
                 alignItems: "center",
                 color: "text.primary"

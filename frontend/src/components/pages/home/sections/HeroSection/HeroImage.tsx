@@ -15,7 +15,7 @@ type HeroImageProps = {
 export function HeroImage({
     src = defaultHeroImg,
     alt = "UnBolinha, Mascote da UnBall",
-    width = { xs: "100%", sm: "380px", xl: "650px" },
+    width = { xs: "100%", sm: "380px", lg: "410px", xl: "650px" },
 }: HeroImageProps) {
     const theme = useTheme();
     const imgRef = useRef<HTMLImageElement>(null);
@@ -65,6 +65,10 @@ export function HeroImage({
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                pt: "32px",
+                pr: "44px",
+                maxWidth: "100%",
+                boxSizing: "border-box",
             }}
         >
             <Box
