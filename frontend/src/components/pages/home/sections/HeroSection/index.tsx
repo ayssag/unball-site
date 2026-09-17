@@ -29,23 +29,23 @@ function HeroSection() {
                     maxWidth: { md: "50%" }
                 }}
             >
-                <Typography variant="h6">{t("pages.home.subtitle")}</Typography>
-                <Typography variant="h1" color="primary">{t('pages.home.title')}</Typography>
-                <Typography>Somos a UnBall, uma equipe de futebol de robôs e projeto de extensão formado por estudantes da Universidade de Brasília que compete nas categorias da Robocup Brasil.</Typography>
+                <Typography variant="h6">{t("pages.home.hero.subtitle")}</Typography>
+                <Typography variant="h1" color="primary">{t("pages.home.hero.title")}</Typography>
+                <Typography>{t("pages.home.hero.description")}</Typography>
                 <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
                     <Button 
                         component={Link} 
                         to={getRoutePath('partners', currentLang)} 
                         variant="contained"
                     >
-                        SEJA UM APOIADOR
+                        {t("pages.home.hero.ctaPartners")}
                     </Button>
                     <Button 
                         component={Link} 
                         to={getRoutePath('about', currentLang)} 
                         variant="outlined"
                     >
-                        CONHEÇA A EQUIPE
+                        {t("pages.home.hero.ctaAbout")}
                     </Button>
                 </Box>
             </Box>
