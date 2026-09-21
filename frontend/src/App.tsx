@@ -21,7 +21,7 @@ function App() {
           flexDirection: 'column',
         }}
       >
-        <Navbar isTop={true} />
+        <Navbar />
         <SystemStatus />
         <Routes>
           <Route path="/" element={<Navigate to="/pt" replace />} />
