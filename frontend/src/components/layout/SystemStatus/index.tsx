@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { FlexBoxBetween } from "@/shared/styled"
-import { Typography, useMediaQuery } from "@mui/material"
+import { Typography, useMediaQuery, alpha } from "@mui/material"
 import theme from "@/theme"
 
 function SystemStatus() {
@@ -47,7 +47,11 @@ function SystemStatus() {
         <FlexBoxBetween
             sx={{
                 position: "sticky",
-                top:0,
+                top: 80,
+                zIndex: 1090,
+                width: "100%",
+                backgroundColor: alpha(theme.palette.background.default, 0.85),
+                backdropFilter: "blur(8px)",
                 "& .MuiTypography-root": {
                     fontFamily: "'Space Mono', monospace",
                     fontSize: '0.6875rem',
