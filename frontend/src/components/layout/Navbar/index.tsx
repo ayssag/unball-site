@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { alpha, MenuList, MenuItem, IconButton, Drawer } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -12,13 +12,29 @@ import Logo from '@/assets/images/logos/unball-logo.png';
 import { getRoutePath, type SupportedLang } from "@/i18n/routesMap";
 
 type Props = {
-    isTop: boolean;
+    isTop?: boolean;
 };
 
 const Navbar = ({ isTop }: Props) => {
     const { t, i18n } = useTranslation();
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
     const currentLang = (i18n.language?.startsWith("en") ? "en" : "pt") as SupportedLang;
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 80) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    const isScrolled = isTop !== undefined ? !isTop || scrolled : scrolled;
 
     const navItems = [
         { key: "home", path: getRoutePath("home", currentLang), label: t("navbar.home"), end: true },
@@ -29,16 +45,24 @@ const Navbar = ({ isTop }: Props) => {
     ];
 
     return (
-        <nav style={{ width: "100%" }}>
+        <nav style={{ position: "sticky", top: 0, zIndex: 1100, width: "100%" }}>
             <FlexBoxBetween
                 sx={{
                     width: "100%",
                     boxSizing: "border-box",
-                    backgroundColor: isTop ? "background.default" : "secondary",
+                    backgroundColor: isScrolled
+                        ? alpha(theme.palette.background.paper, 0.95)
+                        : alpha(theme.palette.background.default, 0.9),
+                    backdropFilter: "blur(12px)",
                     px: { xs: 2, sm: 4, md: 5 },
                     height: 80,
-                    top: 0,
-                    borderBottom: `.71px solid ${alpha(theme.palette.secondary.main, 0.4)}`,
+                    borderBottom: isScrolled
+                        ? `1px solid ${theme.palette.primary.main}`
+                        : `1px solid ${alpha(theme.palette.secondary.main, 0.4)}`,
+                    boxShadow: isScrolled
+                        ? `0 4px 20px ${alpha(theme.palette.common.black, 0.4)}`
+                        : "none",
+                    transition: "all 0.3s ease-in-out",
                 }}
             >
                 <LogoLink to={getRoutePath("home", currentLang)}>
