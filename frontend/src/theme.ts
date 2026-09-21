@@ -3,6 +3,7 @@ import { createTheme } from '@mui/material/styles'
 import '@fontsource/inter'
 import '@fontsource/bungee'
 import '@fontsource/space-mono'
+import '@fontsource-variable/trispace'
 
 const palette = {
     primary: {
@@ -45,19 +46,23 @@ export const theme = createTheme({
     h1: {
       fontFamily: "'Bungee', system-ui",
       fontWeight: 400,
-      letterSpacing: '0.03em',
       fontSize: '2.75rem',
     },
     h2: {
       fontFamily: "'Bungee', system-ui",
       fontWeight: 400,
-      letterSpacing: '0.02em',
       fontSize: '2.25rem',
     },
     h3: {
       fontFamily: "'Bungee', system-ui",
       fontWeight: 400,
       fontSize: '1.75rem',
+    },
+    h4: {
+      fontFamily: "'Trispace Variable', sans-serif",
+      fontWeight: 700,
+      fontSize: '0.625rem',
+      textTransform: 'uppercase'
     },
     h6: {
       fontFamily: "'Space Mono', monospace",
@@ -75,6 +80,9 @@ export const theme = createTheme({
         },
         h3: {
           fontFamily: "'Bungee', system-ui",
+        },
+        h4: {
+          fontFamily: "'Trispace Variable', sans-serif",
         },
         h6: {
           fontFamily: "'Space Mono', monospace",
