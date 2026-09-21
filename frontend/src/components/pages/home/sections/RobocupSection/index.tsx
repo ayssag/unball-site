@@ -17,6 +17,7 @@ import {
     Tune
 } from "@mui/icons-material"
 import { useState, type ReactNode } from "react"
+import WorkAreaDescription from "./WorkAreaDescription"
 
 const iconMap: Record<string, ReactNode> = {
     Visibility: <Visibility />,
@@ -73,6 +74,7 @@ function RobocupSection() {
                             </Grid>
                         ))}
                     </Grid>
+                    <WorkAreaDescription workArea={workAreaItems[activeIndex]} />
                 </Stack>
             </FlexBoxBetween>
         </Box>

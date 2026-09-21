@@ -67,6 +67,7 @@ export const theme = createTheme({
     h6: {
       fontFamily: "'Space Mono', monospace",
       fontSize: '1rem',
+      textTransform: 'uppercase'
     },
   },
   components: {
