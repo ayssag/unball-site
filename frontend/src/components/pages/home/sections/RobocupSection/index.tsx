@@ -41,7 +41,7 @@ function RobocupSection() {
         <BoxSection>
             <FlexBoxBetween
                 sx={{
-                    paddingY: 22,
+                    paddingY: 10,
                     paddingX: 3, 
                     gap: 4,
                     backgroundColor: alpha(theme.palette.background.paper, 0.4),
