@@ -1,11 +1,10 @@
 import { 
-    Box, 
     Stack, 
     Typography, 
     Grid, 
     alpha 
 } from "@mui/material"
-import { FlexBoxBetween } from "@/shared/styled"
+import { BoxSection, FlexBoxBetween } from "@/shared/styled"
 import theme from "@/theme"
 import { useTranslation } from "react-i18next"
 import WorkAreaBadge from "./WorkAreaBadge"
@@ -39,16 +38,12 @@ function RobocupSection() {
     const workAreaItems = t("pages.home.robocup.workAreas.items", { returnObjects: true }) as WorkAreaItem[];
 
     return (
-        <Box
-            sx={{
-                paddingX: { xs: 3, sm: 6, md: 12 },
-                paddingY: { xs: 4, md: 6 },
-            }}
-        >
+        <BoxSection>
             <FlexBoxBetween
                 sx={{
                     paddingY: 22,
                     paddingX: 3, 
+                    gap: 4,
                     backgroundColor: alpha(theme.palette.background.paper, 0.4),
                     borderTop: `1px solid ${alpha(theme.palette.secondary.main, 0.4)}`,
                     borderBottom: `1px solid ${alpha(theme.palette.secondary.main, 0.4)}`,
@@ -77,7 +72,7 @@ function RobocupSection() {
                     <WorkAreaDescription workArea={workAreaItems[activeIndex]} />
                 </Stack>
             </FlexBoxBetween>
-        </Box>
+        </BoxSection>
     )
 }
 
