@@ -88,7 +88,7 @@ export function LeagueCard({ item }: LeagueCardProps) {
                                 <Typography 
                                     variant="h4"
                                     color="primary"
-                                    sx={{ fontSize: "1.5rem" }}
+                                    sx={{ fontSize: "1.25rem", textTransform: "none" }}
                                 >
                                     {Array.isArray(currentItem.trivia.description) 
                                         ? currentItem.trivia.description.join(" ") 

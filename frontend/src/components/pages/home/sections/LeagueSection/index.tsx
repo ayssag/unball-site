@@ -10,14 +10,14 @@ function LeagueSection() {
     return (
         <BoxSection>
             <FlexBoxBetween sx={{ width: "100%" }}>
-                <Stack
-                    spacing={2}
-                    sx={{ maxWidth: { md: "50%" } }}>
+                <Stack spacing={2}>
                     <Typography variant="h6">{t("pages.home.league.subtitle")}</Typography>
                     <Typography variant="h2" color="text.primary">{t("pages.home.league.title")}</Typography>
-                    {Array.isArray(leagueItems) && leagueItems.map((item, index) => (
-                        <LeagueCard key={item.shortName || index} item={item} />
-                    ))}
+                    <Stack direction="row" spacing={2}>
+                        {Array.isArray(leagueItems) && leagueItems.map((item, index) => (
+                            <LeagueCard key={item.shortName || index} item={item} />
+                        ))}
+                    </Stack>
                 </Stack>
             </FlexBoxBetween>
         </BoxSection>

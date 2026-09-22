@@ -1,6 +1,6 @@
 export const league = {
     subtitle: "// ACTIVE CATEGORIES",
-    title: "LEAGUES",
+    title: "COMPETING LEAGUES",
     items: [
         {
             name: "VSSS — VERY SMALL SIZE SOCCER",
@@ -10,6 +10,16 @@ export const league = {
             trivia: {
                 title: "MAXIMUM VOLUMETRY",
                 description: ["7.5 cm³"]
+            }
+        },
+        {
+            name: "SSL — SMALL SIZE LEAGUE",
+            shortName: "SSL",
+            description: "Cylindrical robots with omnidirectional wheels and solenoid kicks. Requires advanced multi-robot planning and micrometer precision.",
+            tags: ["PHYSICAL"],
+            trivia: {
+                title: "TRACTION SYSTEM",
+                description: ["Omnidirectional"]
             }
         }
     ]
