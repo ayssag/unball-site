@@ -10,10 +10,20 @@ function LeagueSection() {
     return (
         <BoxSection>
             <FlexBoxBetween sx={{ width: "100%" }}>
-                <Stack spacing={2}>
+                <Stack spacing={2} sx={{ width: "100%" }}>
                     <Typography variant="h6">{t("pages.home.league.subtitle")}</Typography>
-                    <Typography variant="h2" color="text.primary">{t("pages.home.league.title")}</Typography>
-                    <Stack direction="row" spacing={2}>
+                    <Typography 
+                        variant="h2" 
+                        color="text.primary"
+                        sx={{ fontSize: { xs: "1.5rem", sm: "2rem", md: "2.25rem" } }}
+                    >
+                        {t("pages.home.league.title")}
+                    </Typography>
+                    <Stack 
+                        direction={{ xs: "column", md: "row" }} 
+                        spacing={3}
+                        sx={{ width: "100%" }}
+                    >
                         {Array.isArray(leagueItems) && leagueItems.map((item, index) => (
                             <LeagueCard key={item.shortName || index} item={item} />
                         ))}
