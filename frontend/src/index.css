@@ -3,6 +3,9 @@ html, body, #root {
   padding: 0;
   width: 100%;
   min-height: 100vh;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
 }
 body {
   background-color: #07192E;

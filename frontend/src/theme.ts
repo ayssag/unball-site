@@ -73,6 +73,11 @@ export const theme = createTheme({
   components: {
     MuiCssBaseline: {
       styleOverrides: {
+        html: {
+          WebkitHyphens: 'auto',
+          msHyphens: 'auto',
+          hyphens: 'auto',
+        },
         h1: {
           fontFamily: "'Bungee', system-ui",
         },
