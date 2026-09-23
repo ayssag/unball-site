@@ -3,6 +3,7 @@ import RobocupSection from './sections/RobocupSection';
 import AboutSection from './sections/AboutSection';
 import LeagueSection from './sections/LeagueSection';
 import AchievementsSection from './sections/AchievementsSection';
+import PapersSection from './sections/PapersSection';
 
 function Home() {
   return (
@@ -12,6 +13,7 @@ function Home() {
       <AboutSection />
       <LeagueSection />
       <AchievementsSection />
+      <PapersSection />
     </>
   )
 }
