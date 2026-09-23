@@ -33,7 +33,9 @@ export function AchievementCarousel({ items }: AchievementCarouselProps) {
             sx={{
                 width: "100%",
                 alignItems: "center",
-                paddingY: 2,
+                justifyContent: "space-between",
+                paddingY: { xs: 1, md: 2 },
+                boxSizing: "border-box",
             }}
         >
             <CarouselArrow direction="left" onClick={handlePrev} />
@@ -44,21 +46,28 @@ export function AchievementCarousel({ items }: AchievementCarouselProps) {
                     alignItems: "center",
                     justifyContent: "center",
                     flex: 1,
-                    gap: 4,
+                    gap: { xs: 1, sm: 2, md: 3, lg: 5, xl: 8 },
+                    px: { xs: 0.5, sm: 1, xl: 4 },
                 }}
             >
                 {offsets.map((offset) => {
                     const itemIndex = (activeIndex + offset + count) % count;
                     const item = items[itemIndex];
                     const isCenter = offset === 0;
+                    const isFarSide = Math.abs(offset) === 2;
 
                     return (
                         <Box
                             key={`${item.id}-${offset}`}
-                            sx={{ display: "block" }}>
+                            sx={{ 
+                                display: isFarSide ? { xs: "none", lg: "block" } : "block",
+                                flexShrink: 0,
+                            }}
+                        >
                             <AchievementBadge
                                 achievement={item}
                                 isCenter={isCenter}
+                                isFarSide={isFarSide}
                                 onClick={() => setActiveIndex(itemIndex)}
                             />
                         </Box>

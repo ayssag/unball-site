@@ -20,7 +20,7 @@ export function CarouselArrow({ side, direction, onClick }: CarouselArrowProps) 
             sx={{
                 color: alpha(theme.palette.text.primary, 0.7),
                 zIndex: 2,
-                p: 1,
+                p: { xs: 0.5, sm: 1 },
                 "&:hover": {
                     color: theme.palette.primary.main,
                     backgroundColor: alpha(theme.palette.primary.main, 0.1),
@@ -28,9 +28,9 @@ export function CarouselArrow({ side, direction, onClick }: CarouselArrowProps) 
             }}
         >
             {isLeft ? (
-                <ChevronLeft sx={{ fontSize: 40 }} />
+                <ChevronLeft sx={{ fontSize: { xs: 28, sm: 36, md: 40 } }} />
             ) : (
-                <ChevronRight sx={{ fontSize: 40 }} />
+                <ChevronRight sx={{ fontSize: { xs: 28, sm: 36, md: 40 } }} />
             )}
         </IconButton>
     );

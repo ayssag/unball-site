@@ -14,6 +14,7 @@ export type AchievementItem = {
 export type AchievementBadgeProps = {
     achievement: AchievementItem;
     isCenter?: boolean;
+    isFarSide?: boolean;
     icon?: ReactNode;
     onClick?: () => void;
 };
@@ -23,7 +24,7 @@ const defaultIcons: Record<string, ReactNode> = {
     medal: <WorkspacePremiumOutlined />,
 };
 
-export function AchievementBadge({ achievement, isCenter = false, icon, onClick }: AchievementBadgeProps) {
+export function AchievementBadge({ achievement, isCenter = false, isFarSide = false, icon, onClick }: AchievementBadgeProps) {
     const { title, competition, year } = achievement;
 
     const renderIcon = () => {
@@ -34,30 +35,48 @@ export function AchievementBadge({ achievement, isCenter = false, icon, onClick 
         return <EmojiEventsOutlined />;
     };
 
+    const getSize = () => {
+        if (isCenter) return { xs: 100, sm: 130, md: 150, lg: 175, xl: 208 };
+        if (isFarSide) return { xs: 50, sm: 64, md: 72, lg: 76, xl: 96 };
+        return { xs: 56, sm: 76, md: 90, lg: 100, xl: 128 };
+    };
+
+    const getIconSize = () => {
+        if (isCenter) return { xs: 40, sm: 52, md: 64, lg: 72, xl: 88 };
+        if (isFarSide) return { xs: 20, sm: 26, md: 30, lg: 32, xl: 40 };
+        return { xs: 24, sm: 32, md: 38, lg: 40, xl: 52 };
+    };
+
     return (
         <Stack
-            spacing={isCenter ? 3 : 2}
+            spacing={isCenter ? { xs: 1.5, md: 2.5 } : { xs: 1, md: 1.5 }}
             onClick={onClick}
             sx={{
                 alignItems: "center",
                 textAlign: "center",
                 cursor: "pointer",
-                transform: isCenter ? "scale(1)" : "scale(0.92)"
+                transition: "all 0.3s ease-in-out",
+                opacity: isCenter ? 1 : isFarSide ? 0.4 : 0.65,
+                "&:hover": {
+                    opacity: 1,
+                    transform: isCenter ? "scale(1.04)" : "scale(0.96)",
+                }
             }}
         >
             <Box
                 sx={{
-                    width: isCenter ? 192 : 128,
-                    height: isCenter ? 192 : 128,
+                    width: getSize(),
+                    height: getSize(),
                     borderRadius: "50%",
                     border: `1px solid ${theme.palette.primary.main}`,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     backgroundColor: theme.palette.background.default,
+                    transition: "all 0.3s ease-in-out",
                     "&:hover": {
-                    boxShadow: `0 0 30px ${alpha(theme.palette.primary.main, 0.2)}`
-                }
+                        boxShadow: `0 0 24px ${alpha(theme.palette.primary.main, 0.3)}`
+                    }
                 }}
             >
                 <Box
@@ -66,19 +85,22 @@ export function AchievementBadge({ achievement, isCenter = false, icon, onClick 
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        "& .MuiSvgIcon-root": { fontSize: isCenter ? 80 : 48 }
-                    }}>
+                        "& .MuiSvgIcon-root": { 
+                            fontSize: getIconSize() 
+                        }
+                    }}
+                >
                     {renderIcon()}
                 </Box>
             </Box>
 
-            <Stack>
+            <Stack sx={{ display: isCenter ? "flex" : { xs: "none", md: isFarSide ? "none" : "flex" } }}>
                 <Typography
                     variant="h3"
                     color="primary"
                     sx={{
-                        alignItems: "center",
-                        fontSize: isCenter ? "1.5rem" : "1.25rem"                    }}
+                        fontSize: isCenter ? { xs: "1rem", sm: "1.2rem", md: "1.4rem", xl: "1.65rem" } : { xs: "0.85rem", md: "1rem", xl: "1.15rem" }
+                    }}
                 >
                     {title}
                 </Typography>
@@ -86,7 +108,7 @@ export function AchievementBadge({ achievement, isCenter = false, icon, onClick 
                 <Typography 
                     variant="h4" 
                     sx={{ 
-                        fontSize: isCenter ? "0.875rem" : "0.75rem",
+                        fontSize: isCenter ? { xs: "0.7rem", md: "0.8rem", xl: "0.9rem" } : { xs: "0.6rem", md: "0.7rem", xl: "0.8rem" },
                         color: theme.palette.text.primary,
                     }}
                 >
@@ -96,9 +118,8 @@ export function AchievementBadge({ achievement, isCenter = false, icon, onClick 
                 <Typography
                     variant="h6"
                     sx={{
-                        fontSize: isCenter ? "0.875rem" : "0.75rem",
+                        fontSize: isCenter ? { xs: "0.7rem", md: "0.8rem", xl: "0.9rem" } : { xs: "0.6rem", md: "0.7rem", xl: "0.8rem" },
                         color: theme.palette.secondary.main,
-
                     }}
                 >
                     {year}
