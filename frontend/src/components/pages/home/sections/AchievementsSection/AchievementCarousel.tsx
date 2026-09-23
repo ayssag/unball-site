@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { Box, Stack, IconButton, alpha } from "@mui/material";
-import { ChevronLeft, ChevronRight } from "@mui/icons-material";
-import theme from "@/theme";
+import { Box, Stack } from "@mui/material";
 import AchievementBadge, { type AchievementItem } from "./AchievementBadge";
+import CarouselArrow from "./CarouselArrow";
 
 export type AchievementCarouselProps = {
     items: AchievementItem[];
@@ -26,7 +25,6 @@ export function AchievementCarousel({ items }: AchievementCarouselProps) {
         setActiveIndex((prev) => (prev + 1) % count);
     };
 
-    // 5 slots visíveis em torno do ativo: -2, -1, 0, 1, 2
     const offsets = [-2, -1, 0, 1, 2];
 
     return (
@@ -38,20 +36,7 @@ export function AchievementCarousel({ items }: AchievementCarouselProps) {
                 paddingY: 2,
             }}
         >
-            <IconButton
-                onClick={handlePrev}
-                sx={{
-                    color: alpha(theme.palette.text.primary, 0.7),
-                    zIndex: 2,
-                    p: 1,
-                    "&:hover": {
-                        color: theme.palette.primary.main,
-                        backgroundColor: alpha(theme.palette.primary.main, 0.1),
-                    }
-                }}
-            >
-                <ChevronLeft sx={{ fontSize: 40 }} />
-            </IconButton>
+            <CarouselArrow direction="left" onClick={handlePrev} />
 
             <Box
                 sx={{
@@ -59,9 +44,7 @@ export function AchievementCarousel({ items }: AchievementCarouselProps) {
                     alignItems: "center",
                     justifyContent: "center",
                     flex: 1,
-                    gap: { xs: 1, sm: 2, md: 4 },
-                    overflow: "hidden",
-                    paddingX: 1,
+                    gap: 4,
                 }}
             >
                 {offsets.map((offset) => {
@@ -72,11 +55,7 @@ export function AchievementCarousel({ items }: AchievementCarouselProps) {
                     return (
                         <Box
                             key={`${item.id}-${offset}`}
-                            sx={{
-                                display: "block",
-                                transition: "all 0.4s ease-in-out",
-                            }}
-                        >
+                            sx={{ display: "block" }}>
                             <AchievementBadge
                                 achievement={item}
                                 isCenter={isCenter}
@@ -87,22 +66,10 @@ export function AchievementCarousel({ items }: AchievementCarouselProps) {
                 })}
             </Box>
 
-            <IconButton
-                onClick={handleNext}
-                sx={{
-                    color: alpha(theme.palette.text.primary, 0.7),
-                    zIndex: 2,
-                    p: 1,
-                    "&:hover": {
-                        color: theme.palette.primary.main,
-                        backgroundColor: alpha(theme.palette.primary.main, 0.1),
-                    }
-                }}
-            >
-                <ChevronRight sx={{ fontSize: 40 }} />
-            </IconButton>
+            <CarouselArrow direction="right" onClick={handleNext} />
         </Stack>
     );
 }
 
 export default AchievementCarousel;
+
