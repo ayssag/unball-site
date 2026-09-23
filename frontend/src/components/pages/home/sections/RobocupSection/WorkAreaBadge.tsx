@@ -43,7 +43,6 @@ function WorkAreaBadge({ title, icon, isActive, onClick }: WorkAreaBadgeProps) {
                 sx={{ 
                     color: theme.palette.text.primary,
                     fontSize: { xs: "0.6rem", sm: "0.625rem" },
-                    wordBreak: "break-word",
                 }}
             >
                 {title}

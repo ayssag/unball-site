@@ -77,6 +77,8 @@ export const theme = createTheme({
           WebkitHyphens: 'auto',
           msHyphens: 'auto',
           hyphens: 'auto',
+          wordBreak: 'break-word',
+          overflowWrap: 'break-word',
         },
         h1: {
           fontFamily: "'Bungee', system-ui",

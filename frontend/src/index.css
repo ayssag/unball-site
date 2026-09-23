@@ -6,6 +6,8 @@ html, body, #root {
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 body {
   background-color: #07192E;
