@@ -31,10 +31,8 @@ export type LeagueCardProps = {
 
 export function LeagueCard({ item }: LeagueCardProps) {
     const { t } = useTranslation();
-    const leagueItems = t("pages.home.league.items", { returnObjects: true }) as LeagueItem[];
-    const currentItem = item || (Array.isArray(leagueItems) && leagueItems.length > 0 ? leagueItems[0] : undefined);
 
-    if (!currentItem) return null;
+    if (!item) return null;
 
     return (
         <Card
@@ -61,7 +59,7 @@ export function LeagueCard({ item }: LeagueCardProps) {
                 }}
             >
                 <Typography variant="h4" sx={{ fontSize: { xs: "0.55rem", sm: "0.625rem" } }}>
-                    CAT:{currentItem.shortName}
+                    CAT:{item.shortName}
                 </Typography>
             </Box>
             <CardHeader
@@ -74,12 +72,12 @@ export function LeagueCard({ item }: LeagueCardProps) {
                             fontSize: { xs: "1.25rem", sm: "1.5rem", md: "1.75rem" }
                         }}
                     >
-                        {currentItem.name}
+                        {item.name}
                     </Typography>
                 }
                 subheader={
                     <Stack direction="row" spacing={1} sx={{ mt: 2, gap: 1 }}>
-                        {currentItem.tags && currentItem.tags.map((tag, index) => (
+                        {item.tags && item.tags.map((tag, index) => (
                             <CategoryCard tag={tag} key={index} />
                         ))}
                     </Stack>
@@ -87,10 +85,10 @@ export function LeagueCard({ item }: LeagueCardProps) {
             />
             <CardContent sx={{ padding: 0, mb: 2 }}>
                 <Typography sx={{ fontSize: { xs: "0.875rem", sm: "1rem" } }}>
-                    {currentItem.description}
+                    {item.description}
                 </Typography>
             </CardContent>
-            {currentItem.trivia && (
+            {item.trivia && (
                 <Box
                     sx={{ 
                         borderTop: `1px solid ${alpha(theme.palette.secondary.main, 0.4)}`,
@@ -100,16 +98,16 @@ export function LeagueCard({ item }: LeagueCardProps) {
                     <FlexBoxBetween sx={{ gap: 2 }}>
                         <Stack spacing={1}>
                             <Typography variant="h4" sx={{ fontWeight: 400, fontSize: { xs: "0.55rem", sm: "0.625rem" } }}>
-                                {currentItem.trivia.title}
+                                {item.trivia.title}
                             </Typography>
                             <Typography 
                                 variant="h4"
                                 color="primary"
                                 sx={{ fontSize: { xs: "1rem", sm: "1.25rem" }, textTransform: "none" }}
                             >
-                                {Array.isArray(currentItem.trivia.description) 
-                                    ? currentItem.trivia.description.join(" ") 
-                                    : currentItem.trivia.description}
+                                {Array.isArray(item.trivia.description) 
+                                    ? item.trivia.description.join(" ") 
+                                    : item.trivia.description}
                             </Typography>
                         </Stack>
                         <Box
