@@ -1,9 +1,12 @@
 import { Stack, Typography } from "@mui/material";
 import { BoxSection } from "@/shared/styled";
 import { useTranslation } from "react-i18next";
+import { PaperCard, type PaperItem } from "./PaperCard";
 
 function PapersSection() {
     const { t } = useTranslation();
+    const paperItems = t("pages.home.papers.items", { returnObjects: true }) as PaperItem[];
+
     return (
         <BoxSection>
             <Stack spacing={2} sx={{ width: "100%" }}>
@@ -15,6 +18,14 @@ function PapersSection() {
                 >
                     {t("pages.home.papers.title")}
                 </Typography>
+                <Stack 
+                    spacing={3}
+                    sx={{ width: "100%" }}
+                >
+                    {Array.isArray(paperItems) && paperItems.map((item, index) => (
+                        <PaperCard key={item.title || index} item={item} />
+                    ))}
+                </Stack>
             </Stack>
         </BoxSection>
     )

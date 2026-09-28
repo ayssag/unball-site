@@ -30,8 +30,6 @@ export type LeagueCardProps = {
 }
 
 export function LeagueCard({ item }: LeagueCardProps) {
-    const { t } = useTranslation();
-
     if (!item) return null;
 
     return (

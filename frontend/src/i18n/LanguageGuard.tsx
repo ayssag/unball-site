@@ -12,9 +12,7 @@ export function LanguageGuard() {
   const location = useLocation();
 
   useEffect(() => {
-    if (!lang || !VALID_LANGS.includes(lang as SupportedLang)) {
-      // Se a linguagem for inválida, redireciona para a home em PT
-      navigate('/pt', { replace: true });
+    if (!lang || !VALID_LANGS.includes(lang as SupportedLang)) {      navigate('/pt', { replace: true });
       return;
     }
 
