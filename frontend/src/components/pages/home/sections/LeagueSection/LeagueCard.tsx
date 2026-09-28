@@ -73,11 +73,11 @@ export function LeagueCard({ item }: LeagueCardProps) {
                     </Typography>
                 }
                 subheader={
-                    <Stack direction="row" spacing={1} sx={{ mt: 2, gap: 1 }}>
+                    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mt: 2 }}>
                         {item.tags && item.tags.map((tag, index) => (
                             <TagCard tag={tag} key={index} />
                         ))}
-                    </Stack>
+                    </Box>
                 }
             />
             <CardContent sx={{ padding: 0, mb: 2 }}>

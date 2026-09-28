@@ -19,19 +19,19 @@ export function YearBadge({ date }: YearBadgeProps) {
                 justifyContent: "center",
                 border: `1px solid ${alpha(theme.palette.secondary.main, 0.4)}`,
                 backgroundColor: theme.palette.background.default,
-                padding: 3,
+                padding: { xs: 1.5, sm: 3 },
                 "& .MuiTypography-root": {
                     textAlign: "center",
                     whiteSpace: "nowrap"
                 }
             }}
         >
-            <Typography variant="h6" sx={{ fontSize: { xs: "0.625rem", sm: "0.65rem" } }}>{t("pages.home.papers.yearBadgeText")}</Typography>
+            <Typography variant="h6" sx={{ fontSize: { xs: "0.55rem", sm: "0.65rem" } }}>{t("pages.home.papers.yearBadgeText")}</Typography>
             <Typography 
                 variant="h3" 
                 sx={{
                     color: "primary.main",
-                    fontSize: "1.25rem"
+                    fontSize: { xs: "1rem", sm: "1.25rem" }
                 }}>{year}</Typography>
         </Stack>
     );
