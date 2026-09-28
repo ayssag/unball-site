@@ -7,8 +7,7 @@ import {
     Typography,
     alpha
 } from "@mui/material";
-import { useTranslation } from "react-i18next";
-import { CategoryCard } from "./CategoryCard";
+import { TagCard } from "@/components/common/TagCard";
 import theme from "@/theme";
 import { FlexBoxBetween } from "@/shared/styled";
 
@@ -76,7 +75,7 @@ export function LeagueCard({ item }: LeagueCardProps) {
                 subheader={
                     <Stack direction="row" spacing={1} sx={{ mt: 2, gap: 1 }}>
                         {item.tags && item.tags.map((tag, index) => (
-                            <CategoryCard tag={tag} key={index} />
+                            <TagCard tag={tag} key={index} />
                         ))}
                     </Stack>
                 }

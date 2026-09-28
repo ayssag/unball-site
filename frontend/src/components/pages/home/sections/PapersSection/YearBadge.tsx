@@ -1,15 +1,17 @@
 import theme from "@/theme";
 import { Typography, Stack, alpha } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 export type YearBadgeProps = {
     date: Date;
 };
 
 export function YearBadge({ date }: YearBadgeProps) {
+    const { t } = useTranslation();
     const year: number = date.getFullYear();
 
     return (
-       <Stack
+        <Stack
             sx={{
                 display: "block",
                 width: "fit-content",
@@ -23,14 +25,14 @@ export function YearBadge({ date }: YearBadgeProps) {
                     whiteSpace: "nowrap"
                 }
             }}
-       >
-            <Typography variant="h6" sx={{ fontSize: { xs: "0.625rem", sm: "0.65rem" } }}>ANO</Typography>
+        >
+            <Typography variant="h6" sx={{ fontSize: { xs: "0.625rem", sm: "0.65rem" } }}>{t("pages.home.papers.yearBadgeText")}</Typography>
             <Typography 
                 variant="h3" 
                 sx={{
                     color: "primary.main",
                     fontSize: "1.25rem"
                 }}>{year}</Typography>
-       </Stack>
+        </Stack>
     );
 }

@@ -1,11 +1,11 @@
 import { Box, Typography, alpha } from "@mui/material";
 import theme from "@/theme";
 
-export type CategoryCardProps = {
+export type TagCard = {
     tag: string;
 }
 
-export function CategoryCard({ tag }: CategoryCardProps) {
+export function TagCard({ tag }: TagCard) {
     return (
         <Box
             sx={{

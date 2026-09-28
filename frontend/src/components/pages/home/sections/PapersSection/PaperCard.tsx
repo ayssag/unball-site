@@ -9,10 +9,10 @@ import {
     alpha, 
     CardActionArea
 } from "@mui/material";
-import { FlexBoxBetween } from "@/shared/styled";
 import { YearBadge } from "./YearBadge";
 import theme from "@/theme";
 import { ArrowForward } from "@mui/icons-material";
+import { TagCard } from "@/components/common/TagCard";
 
 export type PaperItem = {
     title: string;
@@ -25,7 +25,7 @@ export type PaperItem = {
 };
 
 export type PaperCardProps = {
-        item?: PaperItem;
+    item?: PaperItem;
 };
 
 export function PaperCard({ item }: PaperCardProps) {
@@ -50,19 +50,24 @@ export function PaperCard({ item }: PaperCardProps) {
                 </Box>
                 <Stack spacing={1}>
                     <CardHeader
-                        sx={{
-                            padding: 0
-                        }}
+                        sx={{ padding: 0 }}
                         title={
-                            <Typography
-                                variant="h3"
-                                sx={{
-                                    mb: 2,
-                                    fontSize: { xs: "1.25rem", sm: "1.5rem", md: "1.75rem" }
-                                }}
-                            >
-                                {item.title}
-                            </Typography>
+                            <Box>
+                                <Stack direction="row" spacing={1} sx={{ mb: 2, gap: 1 }}>
+                                    {item.tags && item.tags.map((tag, index) => (
+                                        <TagCard tag={tag} key={index} />
+                                    ))}
+                                </Stack>
+                                <Typography
+                                    variant="h3"
+                                    sx={{
+                                        mb: 2,
+                                        fontSize: { xs: "1.25rem", sm: "1.5rem", md: "1.75rem" }
+                                    }}
+                                >
+                                    {item.title}
+                                </Typography>
+                            </Box>
                         }
                         subheader={
                             <Typography
