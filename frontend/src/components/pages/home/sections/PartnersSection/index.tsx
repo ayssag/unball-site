@@ -19,7 +19,7 @@ function PartnersSection() {
                 >
                     {t("pages.home.partners.title")}
                 </Typography>
-                <Grid container spacing={1} sx={{ width: "100%" }}>
+                <Grid container spacing={1}>
                     {Array.isArray(partnerItems) && partnerItems.map((item, index) => (
                         <Grid key={item.name || index} size={{ xs: 12, sm: 6, md: 3 }}>
                             <PartnerCard item={item} />

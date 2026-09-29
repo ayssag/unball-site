@@ -1,6 +1,5 @@
 import theme from "@/theme";
 import { alpha, Box, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
 
 export type PartnerItem = {
     type: string;
@@ -20,8 +19,10 @@ export function PartnerCard({ item }: PartnerCardProps) {
     
     return(
         <Box
-            component={Link}
-            to={url}
+            component={url ? "a" : "div"}
+            href={url}
+            target={url ? "_blank" : undefined}
+            rel={url ? "noopener noreferrer" : undefined}
             sx={{
                 display: "flex",
                 flexDirection: "column",
@@ -31,10 +32,16 @@ export function PartnerCard({ item }: PartnerCardProps) {
                 border: `1px solid ${alpha(theme.palette.secondary.main, 0.4)}`,
                 position: "relative",
                 width: "100%",
-                height: "204px",
-                "& .MuiTypography-root": {
-                    color: "text.primary"
-                }
+                height: { xs: "160px", sm: "180px", md: "204px" },
+                px: { xs: 1.5, sm: 2 },
+                py: 4,
+                textDecoration: "none",
+                color: "text.primary",
+                transition: "border-color 0.2s ease-in-out, background-color 0.2s ease-in-out",
+                "&:hover": url ? {
+                    borderColor: theme.palette.primary.main,
+                    backgroundColor: alpha(theme.palette.background.default, 0.8),
+                } : undefined,
             }}
         >
             <Box
@@ -42,24 +49,32 @@ export function PartnerCard({ item }: PartnerCardProps) {
                     position: "absolute", 
                     top: 0, 
                     left: 0,
-                    padding: 1 
+                    p: 1 
                 }}
             >
-                <Typography variant="h6" sx={{ fontSize: "0.625rem" }}>{type}</Typography>
+                <Typography variant="h6" sx={{ fontSize: { xs: "0.55rem", sm: "0.625rem", md: "0.75rem" } }}>
+                    {type}
+                </Typography>
             </Box>
-            <img src={logoUrl} style={{ maxHeight: "64px" }} alt={name} />
+            <Box 
+                component="img" 
+                src={logoUrl} 
+                alt={name}
+                sx={{ maxHeight: { xs: "44px", sm: "54px", md: "64px" }, maxWidth: "80%", objectFit: "contain" }}
+            />
             <Box
                 sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    width: "100%", 
                     position: "absolute", 
                     bottom: 0, 
                     left: 0,
-                    padding: 1 
+                    width: "100%", 
+                    p: 1,
+                    textAlign: "center"
                 }}
             >
-                <Typography variant="body1">{name}</Typography>
+                <Typography variant="body1" sx={{ fontSize: { xs: "0.75rem", sm: "0.875rem", md: "1rem" } }}>
+                    {name}
+                </Typography>
             </Box>
         </Box>
     )
