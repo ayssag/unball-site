@@ -1,4 +1,4 @@
-import { Stack, Typography } from "@mui/material";
+import { Stack, Typography, Grid } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { BoxSection } from "@/shared/styled";
 import { PartnerCard, type PartnerItem } from "@/components/pages/home/sections/PartnersSection/PartnerCard";
@@ -19,18 +19,13 @@ function PartnersSection() {
                 >
                     {t("pages.home.partners.title")}
                 </Typography>
-                <Stack
-                    direction={{ xs: "column", md: "row" }} 
-                    spacing={1}
-                    sx={{ 
-                        width: "100%", 
-                        justifyContent: "center"
-                    }}
-                >
+                <Grid container spacing={1} sx={{ width: "100%" }}>
                     {Array.isArray(partnerItems) && partnerItems.map((item, index) => (
-                        <PartnerCard key={item.name || index} item={item} />
+                        <Grid key={item.name || index} size={{ xs: 12, sm: 6, md: 3 }}>
+                            <PartnerCard item={item} />
+                        </Grid>
                     ))}
-                </Stack>
+                </Grid>
             </Stack>
         </BoxSection>
     )

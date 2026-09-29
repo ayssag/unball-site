@@ -30,7 +30,7 @@ export function PartnerCard({ item }: PartnerCardProps) {
                 backgroundColor: alpha(theme.palette.background.default, 0.6),
                 border: `1px solid ${alpha(theme.palette.secondary.main, 0.4)}`,
                 position: "relative",
-                width: "266px",
+                width: "100%",
                 height: "204px",
                 "& .MuiTypography-root": {
                     color: "text.primary"
