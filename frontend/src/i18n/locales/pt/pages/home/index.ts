@@ -5,6 +5,7 @@ import { league } from "./league";
 import { achievements } from "./achievements";
 import { papers } from "./papers";
 import { partners } from "./partners";
+import { contact } from "./contact";
 
 export const home = {
   hero,
@@ -13,6 +14,7 @@ export const home = {
   league,
   achievements,
   papers,
-  partners
+  partners,
+  contact
 };
 

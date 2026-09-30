@@ -5,6 +5,7 @@ import LeagueSection from './sections/LeagueSection';
 import AchievementsSection from './sections/AchievementsSection';
 import PapersSection from './sections/PapersSection';
 import PartnersSection from './sections/PartnersSection';
+import ContactSection from './sections/ContactSection';
 
 function Home() {
   return (
@@ -16,6 +17,7 @@ function Home() {
       <AchievementsSection />
       <PapersSection />
       <PartnersSection />
+      <ContactSection />
     </>
   )
 }

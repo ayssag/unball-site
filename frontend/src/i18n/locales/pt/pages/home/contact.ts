@@ -1,0 +1,35 @@
+export const contact = {
+    title: "CONTATO",
+    subtitle: "// FALE CONOSCO",
+    description: "Tem dúvidas sobre o projeto, deseja se candidatar ao processo seletivo ou propor uma parceria? Envie sua mensagem pra gente.",
+    items: [
+        {
+            type: "email",
+            title: "E-mail",
+            value: "equipe.unball@gmail.com",
+            link: "mailto:equipe.unball@gmail.com",
+            icon: "Email"
+        },
+        {
+            type: "github",
+            title: "GitHub",
+            value: "unball",
+            link: "https://github.com/unball",
+            icon: "GitHub"
+        },
+        {
+            type: "instagram",
+            title: "Instagram",
+            value: "@equipe.unball",
+            link: "https://www.instagram.com/equipe.unball/",
+            icon: "Instagram"
+        },
+        {
+            type: "linkedin",
+            title: "Linkedin",
+            value: "UnBall",
+            link: "https://www.linkedin.com/company/unball/",
+            icon: "LinkedIn"
+        }
+    ]
+}
