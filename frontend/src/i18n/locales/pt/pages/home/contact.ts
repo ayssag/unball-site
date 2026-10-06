@@ -2,6 +2,26 @@ export const contact = {
     title: "CONTATO",
     subtitle: "// FALE CONOSCO",
     description: "Tem dúvidas sobre o projeto, deseja se candidatar ao processo seletivo ou propor uma parceria? Envie sua mensagem pra gente.",
+    form: {
+        command: "> ./iniciar_comunicacao.sh",
+        name: "NOME",
+        namePlaceholder: "Visitante",
+        email: "EMAIL",
+        emailPlaceholder: "visitante@dominio.com",
+        subject: "ASSUNTO",
+        subjectPlaceholder: "Selecione o assunto...",
+        subjectOptions: {
+            questions: "Dúvidas gerais",
+            selection: "Processo Seletivo",
+            partnerships: "Parcerias e Patrocínio",
+            other: "Outro assunto"
+        },
+        message: "MENSAGEM",
+        messagePlaceholder: "Digite seu texto...",
+        submit: "ENVIAR",
+        sending: "ENVIANDO...",
+        success: "[OK] Mensagem enviada com sucesso! Entraremos em contato em breve."
+    },
     items: [
         {
             type: "email",

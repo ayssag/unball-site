@@ -23,16 +23,16 @@ const palette = {
       secondary: '#F4F7F6',
     },
     error: {
-      main: '#9E3D1D',
+      main: '#FF5F56',
     },
     warning: {
-      main: '#C55B14',
+      main: '#FFBD2E',
     },
     info: {
       main: '#40A5FF',
     },
     success: {
-      main: '#83e32eff',
+      main: '#27C93F',
     },
   }
 
@@ -134,6 +134,9 @@ export const theme = createTheme({
         }
       ]
     },
+    MuiTextField: {
+      
+    }
   },
 })
 
