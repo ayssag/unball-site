@@ -28,9 +28,6 @@ export function PaperCard({ item }: PaperCardProps) {
             sx={{
                 width: "100%",
                 padding: { xs: 2, sm: 3 },
-                border: 1,
-                borderColor: "border.subtle",
-                borderRadius: 0,
                 position: "relative",
                 display: "flex",
                 flexDirection: "column",
@@ -109,7 +106,6 @@ export function PaperCard({ item }: PaperCardProps) {
                             maxWidth: "100%",
                             borderBottom: 1,
                             borderColor: "border.main",
-                            borderRadius: 0,
                             mt: 1,
                             px: 1,
                             py: 0.5,

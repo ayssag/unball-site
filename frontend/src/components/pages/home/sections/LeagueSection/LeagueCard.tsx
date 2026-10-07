@@ -25,9 +25,6 @@ export function LeagueCard({ item }: LeagueCardProps) {
             sx={{
                 width: "100%",
                 padding: { xs: 2, sm: 3 },
-                border: 1,
-                borderColor: "border.subtle",
-                borderRadius: 0,
                 position: "relative",
                 display: "flex",
                 flexDirection: "column",

@@ -52,7 +52,7 @@ function SystemStatus() {
                 backgroundColor: alpha(theme.palette.background.default, 0.85),
                 backdropFilter: "blur(8px)",
                 "& .MuiTypography-root": {
-                    fontFamily: "'Space Mono', monospace",
+                    fontFamily: theme.typography.fontFamilyMono,
                     fontSize: '0.6875rem',
                     color: "text.primary",
                     padding: 2

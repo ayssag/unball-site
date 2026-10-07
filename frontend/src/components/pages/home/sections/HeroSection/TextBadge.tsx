@@ -45,7 +45,7 @@ export function TextBadge({
             sx={{
                 position: "absolute",
                 backgroundColor: "background.default",
-                color: "text.main",
+                color: "text.primary",
                 px: 1,
                 py: 0.25,
                 pointerEvents: "none",
@@ -54,11 +54,11 @@ export function TextBadge({
             }}
         >
             <Typography
-                sx={{
-                    fontFamily: "'Space Mono', monospace",
+                sx={(theme) => ({
+                    fontFamily: theme.typography.fontFamilyMono,
                     fontSize: "0.75rem",
                     whiteSpace: "nowrap",
-                }}
+                })}
             >
                 {unit ? `${value} ${unit}` : value}
             </Typography>

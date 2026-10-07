@@ -1,9 +1,15 @@
-import { alpha } from "@mui/material"
-import { createTheme } from '@mui/material/styles'
+import { createTheme, alpha } from '@mui/material/styles'
 import '@fontsource/inter'
 import '@fontsource/bungee'
 import '@fontsource/space-mono'
 import '@fontsource-variable/trispace'
+
+export const FONTS = {
+  body: "'Inter', sans-serif",
+  display: "'Bungee', system-ui",
+  mono: "'Space Mono', monospace",
+  tech: "'Trispace Variable', sans-serif",
+} as const;
 
 declare module '@mui/material/styles' {
   interface BorderPalette {
@@ -16,6 +22,16 @@ declare module '@mui/material/styles' {
   interface PaletteOptions {
     border?: BorderPalette;
   }
+  interface TypographyVariants {
+    fontFamilyMono: string;
+    fontFamilyDisplay: string;
+    fontFamilyTech: string;
+  }
+  interface TypographyVariantsOptions {
+    fontFamilyMono?: string;
+    fontFamilyDisplay?: string;
+    fontFamilyTech?: string;
+  }
 }
 
 const SECONDARY_MAIN = '#40A5FF'
@@ -23,6 +39,7 @@ const SECONDARY_MAIN = '#40A5FF'
 const palette = {
     primary: {
       main: '#E3873E',
+      dark: '#C55B14',
       contrastText: '#F4F7F6',
     },
     secondary: {
@@ -34,8 +51,8 @@ const palette = {
       paper: '#0A2240',
     },
     text: {
-      primary: '#D8E3ED',
-      secondary: '#F4F7F6',
+      primary: '#F4F7F6',
+      secondary: '#D8E3ED',
     },
     error: {
       main: '#FF5F56',
@@ -57,34 +74,43 @@ const palette = {
 
 export const theme = createTheme({
   palette,
+  shape: {
+    borderRadius: 0,
+  },
   typography: {
-    fontFamily: [
-      'Inter',
-      'sans-serif',
-    ].join(','),
+    fontFamily: FONTS.body,
+    fontFamilyMono: FONTS.mono,
+    fontFamilyDisplay: FONTS.display,
+    fontFamilyTech: FONTS.tech,
     h1: {
-      fontFamily: "'Bungee', system-ui",
+      fontFamily: FONTS.display,
       fontWeight: 400,
       fontSize: '2.75rem',
     },
     h2: {
-      fontFamily: "'Bungee', system-ui",
+      fontFamily: FONTS.display,
       fontWeight: 400,
-      fontSize: '2.25rem',
+      fontSize: '1.5rem',
+      '@media (min-width:600px)': {
+        fontSize: '2rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '2.25rem',
+      },
     },
     h3: {
-      fontFamily: "'Bungee', system-ui",
+      fontFamily: FONTS.display,
       fontWeight: 400,
       fontSize: '1.75rem',
     },
     h4: {
-      fontFamily: "'Trispace Variable', sans-serif",
+      fontFamily: FONTS.tech,
       fontWeight: 700,
       fontSize: '0.625rem',
       textTransform: 'uppercase'
     },
     h6: {
-      fontFamily: "'Space Mono', monospace",
+      fontFamily: FONTS.mono,
       fontSize: '1rem',
       textTransform: 'uppercase'
     },
@@ -92,6 +118,12 @@ export const theme = createTheme({
   components: {
     MuiCssBaseline: {
       styleOverrides: {
+        'html, body, #root': {
+          margin: 0,
+          padding: 0,
+          width: '100%',
+          minHeight: '100vh',
+        },
         html: {
           WebkitHyphens: 'auto',
           msHyphens: 'auto',
@@ -99,27 +131,25 @@ export const theme = createTheme({
           wordBreak: 'break-word',
           overflowWrap: 'break-word',
         },
-        h1: {
-          fontFamily: "'Bungee', system-ui",
+        body: {
+          backgroundColor: palette.background.default,
+          backgroundImage: `linear-gradient(${alpha(SECONDARY_MAIN, 0.04)} 1px, transparent 1px), linear-gradient(90deg, ${alpha(SECONDARY_MAIN, 0.04)} 1px, transparent 1px)`,
+          backgroundSize: '40px 40px',
         },
-        h2: {
-          fontFamily: "'Bungee', system-ui",
-        },
-        h3: {
-          fontFamily: "'Bungee', system-ui",
-        },
-        h4: {
-          fontFamily: "'Trispace Variable', sans-serif",
-        },
-        h6: {
-          fontFamily: "'Space Mono', monospace",
+      },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          border: `1px solid ${alpha(SECONDARY_MAIN, 0.2)}`,
+          backgroundImage: 'none',
         },
       },
     },
     MuiButton: {
       styleOverrides: {
         root: {
-          fontFamily: "'Space Mono', monospace",
+          fontFamily: FONTS.mono,
         },
       },
       variants: [
@@ -128,10 +158,9 @@ export const theme = createTheme({
             variant: "contained",
           },
           style: {
-            backgroundColor: "#C55B14",
-            borderRadius: 0,
+            backgroundColor: palette.primary.dark,
             "&:hover": {
-              backgroundColor: "#833e10ff",
+              backgroundColor: alpha(palette.primary.dark, 0.85),
             }
           }
         },
@@ -141,21 +170,53 @@ export const theme = createTheme({
           },
           style: {
             backgroundColor: "transparent",
-            borderRadius: 0,
             border: "1px solid",
             borderColor: palette.primary.main,
             color: palette.primary.main,
             "&:hover": {
               backgroundColor: alpha(palette.text.primary, 0.1)
             }
-            
           }
         }
       ]
     },
-    MuiTextField: {
-      
-    }
+    MuiInputBase: {
+      styleOverrides: {
+        input: {
+          fontFamily: FONTS.mono,
+          fontSize: '0.875rem',
+          paddingBottom: 8,
+          '&::placeholder': {
+            color: alpha(palette.text.primary, 0.4),
+            opacity: 1,
+          },
+        },
+      },
+    },
+    MuiInput: {
+      styleOverrides: {
+        underline: {
+          '&:before': {
+            borderBottom: `1px solid ${alpha(SECONDARY_MAIN, 0.4)}`,
+          },
+          '&:hover:not(.Mui-disabled):before': {
+            borderBottom: `1px solid ${SECONDARY_MAIN}`,
+          },
+          '&:after': {
+            borderBottom: `2px solid ${palette.primary.main}`,
+          },
+        },
+      },
+    },
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          fontFamily: FONTS.mono,
+          fontSize: '0.75rem',
+          marginTop: 4,
+        },
+      },
+    },
   },
 })
 

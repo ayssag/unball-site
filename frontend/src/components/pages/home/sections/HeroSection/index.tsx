@@ -30,7 +30,7 @@ function HeroSection() {
                 >
                     <Typography variant="h6">{t("pages.home.hero.subtitle")}</Typography>
                     <Typography variant="h1" color="primary">{t("pages.home.hero.title")}</Typography>
-                    <Typography>{t("pages.home.hero.description")}</Typography>
+                    <Typography color="text.secondary">{t("pages.home.hero.description")}</Typography>
                     <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
                         <Button 
                             component={Link} 

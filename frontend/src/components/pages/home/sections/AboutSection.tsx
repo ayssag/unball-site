@@ -30,7 +30,7 @@ function AboutSection() {
                     sx={{ maxWidth: { md: "50%" } }}>
                     <Typography variant="h6">{t("pages.home.about.subtitle")}</Typography>
                     <Typography variant="h2" color="text.primary">{t("pages.home.about.title")}</Typography>
-                    <Typography>{t("pages.home.about.description")}</Typography>
+                    <Typography color="text.secondary">{t("pages.home.about.description")}</Typography>
                 </Stack>
             </FlexBoxBetween>
         </BoxSection>

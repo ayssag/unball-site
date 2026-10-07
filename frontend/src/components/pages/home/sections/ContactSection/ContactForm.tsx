@@ -106,7 +106,6 @@ function ContactForm() {
                 backgroundColor: "background.default",
                 border: 1,
                 borderColor: "border.main",
-                borderRadius: 0,
                 boxShadow: `0 25px 50px ${alpha(theme.palette.common.black, 0.25)}`,
             })}
         >
@@ -157,7 +156,7 @@ function ContactForm() {
                                     color: "text.primary",
                                     border: 1,
                                     borderColor: `${alertSeverity}.main`,
-                                    fontFamily: "'Space Mono', monospace",
+                                    fontFamily: theme.typography.fontFamilyMono,
                                     fontSize: "0.8rem",
                                 })}
                             >
@@ -198,7 +197,7 @@ function ContactForm() {
                             error={Boolean(errors.subject)}
                             helperText={errors.subject}
                         >
-                            <MenuItem value="" disabled sx={{ color: "#5C82A6" }}>
+                            <MenuItem value="" disabled sx={(theme) => ({ color: alpha(theme.palette.text.primary, 0.4) })}>
                                 <em>{t("pages.home.contact.form.subjectPlaceholder", "Selecione o assunto...")}</em>
                             </MenuItem>
                             <MenuItem value="questions">

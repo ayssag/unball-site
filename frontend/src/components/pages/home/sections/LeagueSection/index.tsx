@@ -13,11 +13,7 @@ function LeagueSection() {
             <FlexBoxBetween sx={{ width: "100%" }}>
                 <Stack spacing={2} sx={{ width: "100%" }}>
                     <Typography variant="h6">{t("pages.home.league.subtitle")}</Typography>
-                    <Typography 
-                        variant="h2" 
-                        color="text.primary"
-                        sx={{ fontSize: { xs: "1.5rem", sm: "2rem", md: "2.25rem" } }}
-                    >
+                    <Typography variant="h2" color="text.primary">
                         {t("pages.home.league.title")}
                     </Typography>
                     <Stack 

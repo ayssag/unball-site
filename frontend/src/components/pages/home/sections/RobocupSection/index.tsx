@@ -53,14 +53,12 @@ function RobocupSection() {
                     <Typography 
                         variant="h2" 
                         color="text.primary"
-                        sx={{
-                            fontSize: { xs: "1.65rem", sm: "2rem", md: "2.25rem" },
-                            lineHeight: 1.2,
-                        }}
+                        sx={{ lineHeight: 1.2 }}
                     >
                         {t("pages.home.robocup.title")}
                     </Typography>
                     <Typography
+                        color="text.secondary"
                         sx={{
                             fontSize: { xs: "0.9rem", sm: "1rem" },
                             lineHeight: 1.6,

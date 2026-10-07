@@ -18,11 +18,7 @@ function ContactSection() {
             >
                 <Stack spacing={2} sx={{ width: "100%", maxWidth: { md: "45%" } }}>
                     <Typography variant="h6">{t("pages.home.contact.subtitle")}</Typography>
-                    <Typography 
-                        variant="h2" 
-                        color="text.primary"
-                        sx={{ fontSize: { xs: "1.5rem", sm: "2rem", md: "2.25rem" } }}
-                    >
+                    <Typography variant="h2" color="text.primary">
                         {t("pages.home.contact.title")}
                     </Typography>
                     <Typography color="text.secondary">
