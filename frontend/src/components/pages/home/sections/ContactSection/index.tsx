@@ -1,7 +1,8 @@
-import { Stack, Typography } from "@mui/material";
+import { Stack } from "@mui/material";
 import { BoxSection, FlexBoxBetween } from "@/shared/styled";
 import { useTranslation } from "react-i18next";
 import ContactForm from "./ContactForm";
+import { SectionHeader } from "@/components/common/SectionHeader";
 
 function ContactSection() {
     const { t } = useTranslation();
@@ -16,15 +17,12 @@ function ContactSection() {
                     alignItems: { xs: "stretch", md: "flex-start" },
                 }}
             >
-                <Stack spacing={2} sx={{ width: "100%", maxWidth: { md: "45%" } }}>
-                    <Typography variant="h6">{t("pages.home.contact.subtitle")}</Typography>
-                    <Typography variant="h2" color="text.primary">
-                        {t("pages.home.contact.title")}
-                    </Typography>
-                    <Typography color="text.secondary">
-                        {t("pages.home.contact.description")}
-                    </Typography>
-                </Stack>
+                <SectionHeader
+                    subtitle={t("pages.home.contact.subtitle")}
+                    title={t("pages.home.contact.title")}
+                    description={t("pages.home.contact.description")}
+                    sx={{ width: "100%", maxWidth: { md: "45%" } }}
+                />
                 <Stack sx={{ width: "100%", maxWidth: { md: "55%" } }}>
                     <ContactForm />
                 </Stack>

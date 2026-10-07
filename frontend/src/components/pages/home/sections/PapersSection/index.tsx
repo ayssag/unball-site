@@ -1,10 +1,11 @@
-import { Stack, Typography, Button, Box } from "@mui/material";
+import { Stack, Button, Box } from "@mui/material";
 import { BoxSection } from "@/shared/styled";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { getRoutePath, type SupportedLang } from "@/i18n/routesMap";
 import { PaperCard } from "./PaperCard";
 import type { PaperItem } from "@/types/content";
+import { SectionHeader } from "@/components/common/SectionHeader";
 
 function PapersSection() {
     const { t, i18n } = useTranslation();
@@ -17,10 +18,10 @@ function PapersSection() {
     return (
         <BoxSection>
             <Stack spacing={2} sx={{ width: "100%" }}>
-                <Typography variant="h6">{t("pages.home.papers.subtitle")}</Typography>
-                <Typography variant="h2" color="text.primary">
-                    {t("pages.home.papers.title")}
-                </Typography>
+                <SectionHeader
+                    subtitle={t("pages.home.papers.subtitle")}
+                    title={t("pages.home.papers.title")}
+                />
                 <Stack 
                     spacing={3}
                     sx={{ width: "100%" }}

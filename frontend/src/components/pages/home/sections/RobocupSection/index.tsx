@@ -17,6 +17,8 @@ import {
 import { useState, type ReactNode } from "react"
 import WorkAreaDescription from "./WorkAreaDescription"
 
+import { SectionHeader } from "@/components/common/SectionHeader"
+
 const iconMap: Record<string, ReactNode> = {
     Visibility: <Visibility />,
     Psychology: <Psychology />,
@@ -48,25 +50,12 @@ function RobocupSection() {
                     borderColor: "border.main",
                 })}
             >
-                <Stack spacing={2} sx={{ width: "100%", maxWidth: { xs: "100%", md: "50%" } }}>
-                    <Typography variant="h6">{t("pages.home.robocup.subtitle")}</Typography>
-                    <Typography 
-                        variant="h2" 
-                        color="text.primary"
-                        sx={{ lineHeight: 1.2 }}
-                    >
-                        {t("pages.home.robocup.title")}
-                    </Typography>
-                    <Typography
-                        color="text.secondary"
-                        sx={{
-                            fontSize: { xs: "0.9rem", sm: "1rem" },
-                            lineHeight: 1.6,
-                        }}
-                    >
-                        {t("pages.home.robocup.description")}
-                    </Typography>
-                </Stack>
+                <SectionHeader
+                    subtitle={t("pages.home.robocup.subtitle")}
+                    title={t("pages.home.robocup.title")}
+                    description={t("pages.home.robocup.description")}
+                    sx={{ width: "100%", maxWidth: { xs: "100%", md: "50%" } }}
+                />
 
                 <Stack spacing={2} sx={{ width: "100%", maxWidth: { xs: "100%", md: "50%" } }}>
                     <Typography 

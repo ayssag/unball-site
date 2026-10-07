@@ -1,8 +1,9 @@
 import { BoxSection, FlexBoxBetween } from "@/shared/styled";
-import { Stack, Typography } from "@mui/material";
+import { Stack } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { LeagueCard } from "./LeagueCard";
 import type { LeagueItem } from "@/types/content";
+import { SectionHeader } from "@/components/common/SectionHeader";
 
 function LeagueSection() {
     const { t } = useTranslation();
@@ -12,10 +13,10 @@ function LeagueSection() {
         <BoxSection>
             <FlexBoxBetween sx={{ width: "100%" }}>
                 <Stack spacing={2} sx={{ width: "100%" }}>
-                    <Typography variant="h6">{t("pages.home.league.subtitle")}</Typography>
-                    <Typography variant="h2" color="text.primary">
-                        {t("pages.home.league.title")}
-                    </Typography>
+                    <SectionHeader
+                        subtitle={t("pages.home.league.subtitle")}
+                        title={t("pages.home.league.title")}
+                    />
                     <Stack 
                         direction={{ xs: "column", md: "row" }} 
                         spacing={3}

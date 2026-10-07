@@ -1,9 +1,10 @@
-import { Typography, Box, Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { BoxSection, FlexBoxBetween } from "@/shared/styled";
 import { getRoutePath, type SupportedLang } from "@/i18n/routesMap";
 import HeroImage from "./HeroImage";
+import { SectionHeader } from "@/components/common/SectionHeader";
 
 function HeroSection() {
     const { t, i18n } = useTranslation();
@@ -19,18 +20,15 @@ function HeroSection() {
                     color: "text.primary"
                 }}
             >
-                <Box
-                    sx={{
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: 3,
-                        flex: 1,
-                        maxWidth: { md: "50%" }
-                    }}
+                <SectionHeader
+                    subtitle={t("pages.home.hero.subtitle")}
+                    title={t("pages.home.hero.title")}
+                    description={t("pages.home.hero.description")}
+                    titleVariant="h1"
+                    titleColor="primary"
+                    spacing={3}
+                    sx={{ flex: 1, maxWidth: { md: "50%" } }}
                 >
-                    <Typography variant="h6">{t("pages.home.hero.subtitle")}</Typography>
-                    <Typography variant="h1" color="primary">{t("pages.home.hero.title")}</Typography>
-                    <Typography color="text.secondary">{t("pages.home.hero.description")}</Typography>
                     <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
                         <Button 
                             component={Link} 
@@ -47,7 +45,7 @@ function HeroSection() {
                             {t("pages.home.hero.ctaAbout")}
                         </Button>
                     </Box>
-                </Box>
+                </SectionHeader>
 
                 <HeroImage />
             </FlexBoxBetween>

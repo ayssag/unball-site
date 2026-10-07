@@ -1,8 +1,9 @@
 import { BoxSection, FlexBoxBetween } from "@/shared/styled";
-import { Typography, Stack, alpha } from "@mui/material";
+import { alpha } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { AchievementCarousel } from "./AchievementCarousel";
 import type { AchievementItem } from "@/types/content";
+import { SectionHeader } from "@/components/common/SectionHeader";
 
 function AchievementsSection() {
     const { t } = useTranslation();
@@ -27,12 +28,11 @@ function AchievementsSection() {
                     borderColor: "border.main",
                 })}
             >
-                <Stack spacing={1.5}>
-                    <Typography variant="h6">{t("pages.home.achievements.subtitle")}</Typography>
-                    <Typography variant="h2" color="text.primary">
-                        {t("pages.home.achievements.title")}
-                    </Typography>
-                </Stack>
+                <SectionHeader
+                    subtitle={t("pages.home.achievements.subtitle")}
+                    title={t("pages.home.achievements.title")}
+                    spacing={1.5}
+                />
 
                 <AchievementCarousel items={Array.isArray(achievementItems) ? achievementItems : []} />
             </FlexBoxBetween>
