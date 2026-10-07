@@ -1,15 +1,15 @@
 import { Stack, Button, Box } from "@mui/material";
-import { BoxSection } from "@/shared/styled";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { getRoutePath, type SupportedLang } from "@/i18n/routesMap";
+import { BoxSection } from "@/shared/styled";
+import { useLocalizedPath } from "@/i18n/useLocalizedPath";
 import { PaperCard } from "./PaperCard";
 import type { PaperItem } from "@/types/content";
 import { SectionHeader } from "@/components/common/SectionHeader";
 
 function PapersSection() {
-    const { t, i18n } = useTranslation();
-    const currentLang = (i18n.language?.startsWith('en') ? 'en' : 'pt') as SupportedLang;
+    const { t } = useTranslation();
+    const getPath = useLocalizedPath();
     const paperItems = t("pages.home.papers.items", { returnObjects: true }) as PaperItem[];
 
     const hasMore = Array.isArray(paperItems) && paperItems.length > 2;
@@ -34,7 +34,7 @@ function PapersSection() {
                     <Box sx={{ display: "flex", pt: 2 }}>
                         <Button
                             component={Link}
-                            to={getRoutePath("papers", currentLang)}
+                            to={getPath("papers")}
                             variant="outlined"
                         >
                             {t("pages.home.papers.ctaMore")}

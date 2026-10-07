@@ -8,17 +8,17 @@ import { NavButton } from "./NavButton";
 import { LogoLink } from "./LogoLink";
 import { LanguageSwitch } from "./LanguageSwitch";
 import Logo from '@/assets/images/logos/unball-logo.png';
-import { getRoutePath, type SupportedLang } from "@/i18n/routesMap";
+import { useLocalizedPath } from "@/i18n/useLocalizedPath";
 
 export type NavbarProps = {
     isTop?: boolean;
 };
 
 const Navbar = ({ isTop }: NavbarProps) => {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
+    const getPath = useLocalizedPath();
     const [mobileOpen, setMobileOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const currentLang = (i18n.language?.startsWith("en") ? "en" : "pt") as SupportedLang;
 
     useEffect(() => {
         const handleScroll = () => {
@@ -36,11 +36,11 @@ const Navbar = ({ isTop }: NavbarProps) => {
     const isScrolled = isTop !== undefined ? !isTop || scrolled : scrolled;
 
     const navItems = [
-        { key: "home", path: getRoutePath("home", currentLang), label: t("navbar.home"), end: true },
-        { key: "about", path: getRoutePath("about", currentLang), label: t("navbar.about") },
-        { key: "papers", path: getRoutePath("papers", currentLang), label: t("navbar.papers") },
-        { key: "partners", path: getRoutePath("partners", currentLang), label: t("navbar.partners") },
-        { key: "contact", path: getRoutePath("contact", currentLang), label: t("navbar.contact") },
+        { key: "home", path: getPath("home"), label: t("navbar.home"), end: true },
+        { key: "about", path: getPath("about"), label: t("navbar.about") },
+        { key: "papers", path: getPath("papers"), label: t("navbar.papers") },
+        { key: "partners", path: getPath("partners"), label: t("navbar.partners") },
+        { key: "contact", path: getPath("contact"), label: t("navbar.contact") },
     ];
 
     return (
@@ -63,7 +63,7 @@ const Navbar = ({ isTop }: NavbarProps) => {
                     transition: "all 0.3s ease-in-out",
                 })}
             >
-                <LogoLink to={getRoutePath("home", currentLang)}>
+                <LogoLink to={getPath("home")}>
                     <FlexBoxBetween sx={{ gap: 2 }}>
                         <img src={Logo} alt="Logo da UnBall" width={40} />
                         <Box component="h2" sx={{ color: "primary.main", m: 0 }}>UnBall</Box>

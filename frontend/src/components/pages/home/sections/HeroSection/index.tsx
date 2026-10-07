@@ -2,13 +2,13 @@ import { Box, Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { BoxSection, FlexBoxBetween } from "@/shared/styled";
-import { getRoutePath, type SupportedLang } from "@/i18n/routesMap";
+import { useLocalizedPath } from "@/i18n/useLocalizedPath";
 import HeroImage from "./HeroImage";
 import { SectionHeader } from "@/components/common/SectionHeader";
 
 function HeroSection() {
-    const { t, i18n } = useTranslation();
-    const currentLang = (i18n.language?.startsWith('en') ? 'en' : 'pt') as SupportedLang;
+    const { t } = useTranslation();
+    const getPath = useLocalizedPath();
 
     return (
         <BoxSection>
@@ -32,14 +32,14 @@ function HeroSection() {
                     <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
                         <Button 
                             component={Link} 
-                            to={getRoutePath('partners', currentLang)} 
+                            to={getPath('partners')} 
                             variant="contained"
                         >
                             {t("pages.home.hero.ctaPartners")}
                         </Button>
                         <Button 
                             component={Link} 
-                            to={getRoutePath('about', currentLang)} 
+                            to={getPath('about')} 
                             variant="outlined"
                         >
                             {t("pages.home.hero.ctaAbout")}
