@@ -1,15 +1,11 @@
 import { alpha, Box, Typography } from "@mui/material";
+import type { PartnerItem } from "@/types/content";
 
-export type PartnerItem = {
-    type: string;
-    name: string;
-    logoUrl: string;
-    url?: string;
-}
+export type { PartnerItem };
 
 export type PartnerCardProps = {
     item?: PartnerItem;
-}
+};
 
 export function PartnerCard({ item }: PartnerCardProps) {
     if (!item) return null;

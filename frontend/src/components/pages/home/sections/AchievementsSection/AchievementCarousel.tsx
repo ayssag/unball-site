@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Box, Stack } from "@mui/material";
-import AchievementBadge, { type AchievementItem } from "./AchievementBadge";
+import AchievementBadge from "./AchievementBadge";
 import CarouselArrow from "./CarouselArrow";
+import type { AchievementItem } from "@/types/content";
 
 export type AchievementCarouselProps = {
     items: AchievementItem[];

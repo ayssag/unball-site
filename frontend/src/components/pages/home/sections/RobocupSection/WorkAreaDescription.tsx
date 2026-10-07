@@ -1,11 +1,10 @@
 import { Box, Typography, alpha } from "@mui/material"
 
-type WorkAreaDescriptionProps = {
-    workArea?: {
-        title: string;
-        description: string;
-    };
-}
+import type { WorkAreaItem } from "@/types/content";
+
+export type WorkAreaDescriptionProps = {
+    workArea?: Pick<WorkAreaItem, "title" | "description">;
+};
 
 function WorkAreaDescription({ workArea }: WorkAreaDescriptionProps) {
     if (!workArea) return null;

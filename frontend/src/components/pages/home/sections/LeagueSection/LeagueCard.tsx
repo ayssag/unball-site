@@ -9,22 +9,13 @@ import {
 import { TagCard } from "@/components/common/TagCard";
 import { FlexBoxBetween } from "@/shared/styled";
 
-type LeagueTrivia = {
-    title: string;
-    description: string[] | string;
-}
+import type { LeagueItem, LeagueTrivia } from "@/types/content";
 
-export type LeagueItem = {
-    name: string;
-    shortName: string;
-    description: string;
-    tags: string[];
-    trivia: LeagueTrivia;
-}
+export type { LeagueItem, LeagueTrivia };
 
 export type LeagueCardProps = {
     item?: LeagueItem;
-}
+};
 
 export function LeagueCard({ item }: LeagueCardProps) {
     if (!item) return null;

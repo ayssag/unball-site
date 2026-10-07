@@ -3,7 +3,8 @@ import { BoxSection } from "@/shared/styled";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { getRoutePath, type SupportedLang } from "@/i18n/routesMap";
-import { PaperCard, type PaperItem } from "./PaperCard";
+import { PaperCard } from "./PaperCard";
+import type { PaperItem } from "@/types/content";
 
 function PapersSection() {
     const { t, i18n } = useTranslation();

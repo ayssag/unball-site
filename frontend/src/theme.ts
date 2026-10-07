@@ -7,9 +7,7 @@ import '@fontsource-variable/trispace'
 
 declare module '@mui/material/styles' {
   interface BorderPalette {
-    /** Borda padrão do site (secondary a 40%) */
     main: string;
-    /** Borda mais discreta (secondary a 20%) */
     subtle: string;
   }
   interface Palette {

@@ -12,15 +12,9 @@ import { YearBadge } from "./YearBadge";
 import { ArrowForward } from "@mui/icons-material";
 import { TagCard } from "@/components/common/TagCard";
 
-export type PaperItem = {
-    title: string;
-    authors: string[];
-    date: Date;
-    abstract: string;
-    url: string;
-    tags: string[];
-    ctaText: string;
-};
+import type { PaperItem } from "@/types/content";
+
+export type { PaperItem };
 
 export type PaperCardProps = {
     item?: PaperItem;

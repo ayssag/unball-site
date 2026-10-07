@@ -4,13 +4,13 @@ import type { ResponsiveStyleValue } from "@mui/system";
 import defaultHeroImg from "@/assets/images/unbolinha/bolinha_sentado.png";
 import TextBadge from "./TextBadge";
 
-type HeroImageProps = {
+export type HeroImageProps = {
     src?: string;
     alt?: string;
     label?: string;
     width?: ResponsiveStyleValue<string | number>;
     sx?: SxProps<Theme>;
-}
+};
 
 export function HeroImage({
     src = defaultHeroImg,

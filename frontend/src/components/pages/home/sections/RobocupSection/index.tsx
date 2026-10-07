@@ -25,11 +25,7 @@ const iconMap: Record<string, ReactNode> = {
     Tune: <Tune />,
 }
 
-type WorkAreaItem = {
-    title: string;
-    icon: string;
-    description: string;
-}
+import type { WorkAreaItem } from "@/types/content";
 
 function RobocupSection() {
     const { t } = useTranslation();

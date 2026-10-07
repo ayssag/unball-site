@@ -10,11 +10,11 @@ import { LanguageSwitch } from "./LanguageSwitch";
 import Logo from '@/assets/images/logos/unball-logo.png';
 import { getRoutePath, type SupportedLang } from "@/i18n/routesMap";
 
-type Props = {
+export type NavbarProps = {
     isTop?: boolean;
 };
 
-const Navbar = ({ isTop }: Props) => {
+const Navbar = ({ isTop }: NavbarProps) => {
     const { t, i18n } = useTranslation();
     const [mobileOpen, setMobileOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);

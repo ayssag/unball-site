@@ -2,7 +2,7 @@ import { BoxSection, FlexBoxBetween } from "@/shared/styled";
 import { Typography, Stack, alpha } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { AchievementCarousel } from "./AchievementCarousel";
-import type { AchievementItem } from "./AchievementBadge";
+import type { AchievementItem } from "@/types/content";
 
 function AchievementsSection() {
     const { t } = useTranslation();

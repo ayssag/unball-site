@@ -1,8 +1,8 @@
 import { Stack, Typography, Grid } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { BoxSection } from "@/shared/styled";
-import { PartnerCard, type PartnerItem } from "@/components/pages/home/sections/PartnersSection/PartnerCard";
-
+import { PartnerCard } from "@/components/pages/home/sections/PartnersSection/PartnerCard";
+import type { PartnerItem } from "@/types/content";
 
 function PartnersSection() {
     const { t } = useTranslation();

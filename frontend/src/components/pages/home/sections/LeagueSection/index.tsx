@@ -1,7 +1,8 @@
 import { BoxSection, FlexBoxBetween } from "@/shared/styled";
 import { Stack, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import { LeagueCard, type LeagueItem } from "./LeagueCard";
+import { LeagueCard } from "./LeagueCard";
+import type { LeagueItem } from "@/types/content";
 
 function LeagueSection() {
     const { t } = useTranslation();

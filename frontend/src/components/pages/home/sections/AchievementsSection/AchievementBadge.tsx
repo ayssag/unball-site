@@ -2,13 +2,9 @@ import { Box, Stack, Typography, alpha } from "@mui/material";
 import { EmojiEventsOutlined, WorkspacePremiumOutlined } from "@mui/icons-material";
 import type { ReactNode } from "react";
 
-export type AchievementItem = {
-    id: number | string;
-    title: string;
-    competition: string;
-    year: string | number;
-    icon?: string;
-};
+import type { AchievementItem } from "@/types/content";
+
+export type { AchievementItem };
 
 export type AchievementBadgeProps = {
     achievement: AchievementItem;
