@@ -5,10 +5,8 @@ import {
     CardHeader,
     CardContent,
     Typography,
-    alpha
 } from "@mui/material";
 import { TagCard } from "@/components/common/TagCard";
-import theme from "@/theme";
 import { FlexBoxBetween } from "@/shared/styled";
 
 type LeagueTrivia = {
@@ -36,7 +34,8 @@ export function LeagueCard({ item }: LeagueCardProps) {
             sx={{
                 width: "100%",
                 padding: { xs: 2, sm: 3 },
-                border: `1px solid ${alpha(theme.palette.secondary.main, 0.2)}`,
+                border: 1,
+                borderColor: "border.subtle",
                 borderRadius: 0,
                 position: "relative",
                 display: "flex",
@@ -51,8 +50,9 @@ export function LeagueCard({ item }: LeagueCardProps) {
                     right: 0,
                     width: "fit-content",
                     padding: 1,
-                    backgroundColor: theme.palette.background.default,
-                    border: `1px solid ${alpha(theme.palette.secondary.main, 0.4)}`,
+                    backgroundColor: "background.default",
+                    border: 1,
+                    borderColor: "border.main",
                 }}
             >
                 <Typography variant="h4" sx={{ fontSize: { xs: "0.55rem", sm: "0.625rem" } }}>
@@ -88,7 +88,8 @@ export function LeagueCard({ item }: LeagueCardProps) {
             {item.trivia && (
                 <Box
                     sx={{ 
-                        borderTop: `1px solid ${alpha(theme.palette.secondary.main, 0.4)}`,
+                        borderTop: 1,
+                        borderColor: "border.main",
                         pt: 2 
                     }}
                 >
@@ -109,8 +110,9 @@ export function LeagueCard({ item }: LeagueCardProps) {
                         </Stack>
                         <Box
                             sx={{
-                                border: `1px solid ${alpha(theme.palette.secondary.main, 0.4)}`,
-                                backgroundColor: theme.palette.background.default, 
+                                border: 1,
+                                borderColor: "border.main",
+                                backgroundColor: "background.default", 
                                 width: { xs: "3rem", sm: "4rem" }, 
                                 height: { xs: "3rem", sm: "4rem" }
                             }}

@@ -1,5 +1,4 @@
-import theme from "@/theme";
-import { Typography, Stack, alpha } from "@mui/material";
+import { Typography, Stack } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 export type YearBadgeProps = {
@@ -17,8 +16,9 @@ export function YearBadge({ date }: YearBadgeProps) {
                 width: "fit-content",
                 alignItems: "center",
                 justifyContent: "center",
-                border: `1px solid ${alpha(theme.palette.secondary.main, 0.4)}`,
-                backgroundColor: theme.palette.background.default,
+                border: 1,
+                borderColor: "border.main",
+                backgroundColor: "background.default",
                 padding: { xs: 1.5, sm: 3 },
                 "& .MuiTypography-root": {
                     textAlign: "center",

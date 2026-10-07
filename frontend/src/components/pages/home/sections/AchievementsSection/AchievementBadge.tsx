@@ -1,6 +1,5 @@
 import { Box, Stack, Typography, alpha } from "@mui/material";
 import { EmojiEventsOutlined, WorkspacePremiumOutlined } from "@mui/icons-material";
-import theme from "@/theme";
 import type { ReactNode } from "react";
 
 export type AchievementItem = {
@@ -64,24 +63,25 @@ export function AchievementBadge({ achievement, isCenter = false, isFarSide = fa
             }}
         >
             <Box
-                sx={{
+                sx={(theme) => ({
                     width: getSize(),
                     height: getSize(),
                     borderRadius: "50%",
-                    border: `1px solid ${theme.palette.primary.main}`,
+                    border: 1,
+                    borderColor: "primary.main",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    backgroundColor: theme.palette.background.default,
+                    backgroundColor: "background.default",
                     transition: "all 0.3s ease-in-out",
                     "&:hover": {
                         boxShadow: `0 0 24px ${alpha(theme.palette.primary.main, 0.3)}`
                     }
-                }}
+                })}
             >
                 <Box
                     sx={{
-                        color: theme.palette.primary.main,
+                        color: "primary.main",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -109,7 +109,7 @@ export function AchievementBadge({ achievement, isCenter = false, isFarSide = fa
                     variant="h4" 
                     sx={{ 
                         fontSize: isCenter ? { xs: "0.7rem", md: "0.8rem", xl: "0.9rem" } : { xs: "0.6rem", md: "0.7rem", xl: "0.8rem" },
-                        color: theme.palette.text.primary,
+                        color: "text.primary",
                     }}
                 >
                     {competition}
@@ -119,7 +119,7 @@ export function AchievementBadge({ achievement, isCenter = false, isFarSide = fa
                     variant="h6"
                     sx={{
                         fontSize: isCenter ? { xs: "0.7rem", md: "0.8rem", xl: "0.9rem" } : { xs: "0.6rem", md: "0.7rem", xl: "0.8rem" },
-                        color: theme.palette.secondary.main,
+                        color: "secondary.main",
                     }}
                 >
                     {year}

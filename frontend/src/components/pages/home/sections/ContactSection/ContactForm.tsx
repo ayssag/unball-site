@@ -1,5 +1,4 @@
 import { useState } from "react";
-import theme from "@/theme";
 import {
     Box,
     Stack,
@@ -11,7 +10,8 @@ import {
     Button,
     Alert,
     CircularProgress,
-    alpha
+    alpha,
+    useTheme
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { StyledTextField } from "./StyledTextField";
@@ -24,6 +24,7 @@ const ColoredCircle = ({ color }: { color: string }) => (
 
 function ContactForm() {
     const { t } = useTranslation();
+    const theme = useTheme();
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -100,13 +101,14 @@ function ContactForm() {
 
     return (
         <Card
-            sx={{
+            sx={(theme) => ({
                 width: "100%",
                 backgroundColor: "background.default",
-                border: `1px solid ${alpha(theme.palette.secondary.main, 0.4)}`,
+                border: 1,
+                borderColor: "border.main",
                 borderRadius: 0,
-                boxShadow: `0 25px 50px ${alpha("#000", 0.25)}`,
-            }}
+                boxShadow: `0 25px 50px ${alpha(theme.palette.common.black, 0.25)}`,
+            })}
         >
             <CardHeader
                 title={
@@ -128,11 +130,11 @@ function ContactForm() {
                         </Typography>
                     </Stack>
                 }
-                sx={{
+                sx={(theme) => ({
                     backgroundColor: alpha(theme.palette.secondary.main, 0.4),
                     py: 1.2,
                     px: 2,
-                }}
+                })}
             />
             <CardContent sx={{ p: { xs: 2.5, sm: 4 } }}>
                 <Box component="form" onSubmit={handleSubmit} noValidate>
@@ -150,13 +152,14 @@ function ContactForm() {
                             <Alert 
                                 severity={alertSeverity} 
                                 onClose={() => setStatus("idle")}
-                                sx={{
+                                sx={(theme) => ({
                                     backgroundColor: alpha(theme.palette[alertSeverity].main, 0.15),
-                                    color: theme.palette.text.primary,
-                                    border: `1px solid ${theme.palette[alertSeverity].main}`,
+                                    color: "text.primary",
+                                    border: 1,
+                                    borderColor: `${alertSeverity}.main`,
                                     fontFamily: "'Space Mono', monospace",
                                     fontSize: "0.8rem",
-                                }}
+                                })}
                             >
                                 {alertMessage}
                             </Alert>

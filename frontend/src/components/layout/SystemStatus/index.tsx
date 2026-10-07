@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react"
 import { FlexBoxBetween } from "@/shared/styled"
-import { Typography, useMediaQuery, alpha } from "@mui/material"
-import theme from "@/theme"
+import { Box, Typography, useMediaQuery, alpha } from "@mui/material"
 
 function SystemStatus() {
-    const isDesktop = useMediaQuery(theme.breakpoints.up("md"))
+    const isDesktop = useMediaQuery((theme) => theme.breakpoints.up("md"))
     const [coords, setCoords] = useState({ x: 0, y: 0 })
 
     useEffect(() => {
@@ -45,7 +44,7 @@ function SystemStatus() {
 
     return (
         <FlexBoxBetween
-            sx={{
+            sx={(theme) => ({
                 position: "sticky",
                 top: 80,
                 zIndex: 1090,
@@ -55,15 +54,15 @@ function SystemStatus() {
                 "& .MuiTypography-root": {
                     fontFamily: "'Space Mono', monospace",
                     fontSize: '0.6875rem',
-                    color: theme.palette.text.primary,
+                    color: "text.primary",
                     padding: 2
                 }
-            }}
+            })}
         >
             <Typography>
                 X: {coords.x.toFixed(2)} / Y: {coords.y.toFixed(2)}
             </Typography>
-            <Typography>SYS.STATUS: <span style={{ color: theme.palette.success.main }}>ONLINE</span></Typography>
+            <Typography>SYS.STATUS: <Box component="span" sx={{ color: "success.main" }}>ONLINE</Box></Typography>
         </FlexBoxBetween>
     )
 }

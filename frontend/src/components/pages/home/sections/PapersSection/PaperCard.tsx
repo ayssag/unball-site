@@ -9,7 +9,6 @@ import {
     alpha
 } from "@mui/material";
 import { YearBadge } from "./YearBadge";
-import theme from "@/theme";
 import { ArrowForward } from "@mui/icons-material";
 import { TagCard } from "@/components/common/TagCard";
 
@@ -35,7 +34,8 @@ export function PaperCard({ item }: PaperCardProps) {
             sx={{
                 width: "100%",
                 padding: { xs: 2, sm: 3 },
-                border: `1px solid ${alpha(theme.palette.secondary.main, 0.2)}`,
+                border: 1,
+                borderColor: "border.subtle",
                 borderRadius: 0,
                 position: "relative",
                 display: "flex",
@@ -107,22 +107,23 @@ export function PaperCard({ item }: PaperCardProps) {
                         href={item.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        sx={{
+                        sx={(theme) => ({
                             color: "text.primary",
                             gap: 2,
                             fontSize: { xs: "0.75rem", sm: "0.875rem" },
                             width: "fit-content",
                             maxWidth: "100%",
-                            borderBottom: `1px solid ${alpha(theme.palette.secondary.main, 0.4)}`,
+                            borderBottom: 1,
+                            borderColor: "border.main",
                             borderRadius: 0,
                             mt: 1,
                             px: 1,
                             py: 0.5,
                             "&:hover": {
                                 backgroundColor: alpha(theme.palette.secondary.main, 0.1),
-                                borderBottomColor: theme.palette.secondary.main,
+                                borderBottomColor: "secondary.main",
                             }
-                        }}
+                        })}
                     >
                         {item.ctaText}
                         <ArrowForward sx={{ fontSize: "inherit" }}/>

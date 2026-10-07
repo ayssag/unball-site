@@ -1,5 +1,4 @@
 import { Box, Typography, alpha } from "@mui/material"
-import theme from "@/theme"
 
 type WorkAreaDescriptionProps = {
     workArea?: {
@@ -13,21 +12,22 @@ function WorkAreaDescription({ workArea }: WorkAreaDescriptionProps) {
 
     return (
         <Box
-            sx={{
+            sx={(theme) => ({
                 justifyContent: "center",
                 alignItems: "center",
                 paddingX: { xs: 2, sm: 3 },
                 paddingY: { xs: 2, sm: 2.5 },
                 backgroundColor: alpha(theme.palette.background.paper, 0.4),
-                border: `1px solid ${alpha(theme.palette.secondary.main, 0.4)}`,
-            }}
+                border: 1,
+                borderColor: "border.main",
+            })}
         >
             <Typography 
                 variant="h6"
+                color="primary"
                 sx={{ 
                     fontSize: { xs: "0.875rem", sm: "1rem" },
                     marginBottom: 1,
-                    color: theme.palette.primary.main,
                 }}
             >
                 {'>'} {workArea.title}

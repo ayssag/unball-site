@@ -5,7 +5,6 @@ import {
     alpha 
 } from "@mui/material"
 import { BoxSection, FlexBoxBetween } from "@/shared/styled"
-import theme from "@/theme"
 import { useTranslation } from "react-i18next"
 import WorkAreaBadge from "./WorkAreaBadge"
 import {
@@ -40,7 +39,7 @@ function RobocupSection() {
     return (
         <BoxSection>
             <FlexBoxBetween
-                sx={{
+                sx={(theme) => ({
                     width: "100%",
                     paddingY: { xs: 4, sm: 6, md: 10 },
                     paddingX: { xs: 2, sm: 3, md: 4 }, 
@@ -48,9 +47,10 @@ function RobocupSection() {
                     flexDirection: { xs: "column", md: "row" },
                     alignItems: { xs: "stretch", md: "flex-start" },
                     backgroundColor: alpha(theme.palette.background.paper, 0.4),
-                    borderTop: `1px solid ${alpha(theme.palette.secondary.main, 0.4)}`,
-                    borderBottom: `1px solid ${alpha(theme.palette.secondary.main, 0.4)}`,
-                }}
+                    borderTop: 1,
+                    borderBottom: 1,
+                    borderColor: "border.main",
+                })}
             >
                 <Stack spacing={2} sx={{ width: "100%", maxWidth: { xs: "100%", md: "50%" } }}>
                     <Typography variant="h6">{t("pages.home.robocup.subtitle")}</Typography>

@@ -5,13 +5,30 @@ import '@fontsource/bungee'
 import '@fontsource/space-mono'
 import '@fontsource-variable/trispace'
 
+declare module '@mui/material/styles' {
+  interface BorderPalette {
+    /** Borda padrão do site (secondary a 40%) */
+    main: string;
+    /** Borda mais discreta (secondary a 20%) */
+    subtle: string;
+  }
+  interface Palette {
+    border: BorderPalette;
+  }
+  interface PaletteOptions {
+    border?: BorderPalette;
+  }
+}
+
+const SECONDARY_MAIN = '#40A5FF'
+
 const palette = {
     primary: {
       main: '#E3873E',
       contrastText: '#F4F7F6',
     },
     secondary: {
-      main: '#40A5FF',
+      main: SECONDARY_MAIN,
       contrastText: '#07192E',
     },
     background: {
@@ -33,6 +50,10 @@ const palette = {
     },
     success: {
       main: '#27C93F',
+    },
+    border: {
+      main: alpha(SECONDARY_MAIN, 0.4),
+      subtle: alpha(SECONDARY_MAIN, 0.2),
     },
   }
 

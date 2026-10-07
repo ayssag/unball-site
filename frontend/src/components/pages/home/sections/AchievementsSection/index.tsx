@@ -1,6 +1,5 @@
 import { BoxSection, FlexBoxBetween } from "@/shared/styled";
 import { Typography, Stack, alpha } from "@mui/material";
-import theme from "@/theme";
 import { useTranslation } from "react-i18next";
 import { AchievementCarousel } from "./AchievementCarousel";
 import type { AchievementItem } from "./AchievementBadge";
@@ -12,7 +11,7 @@ function AchievementsSection() {
     return (
         <BoxSection>
             <FlexBoxBetween
-                sx={{
+                sx={(theme) => ({
                     flexDirection: "column",
                     alignItems: "flex-start",
                     paddingY: { xs: 4, sm: 6, md: 10, xl: 12 },
@@ -23,9 +22,10 @@ function AchievementsSection() {
                     boxSizing: "border-box",
                     overflow: "hidden",
                     backgroundColor: alpha(theme.palette.background.paper, 0.4),
-                    borderTop: `1px solid ${alpha(theme.palette.secondary.main, 0.4)}`,
-                    borderBottom: `1px solid ${alpha(theme.palette.secondary.main, 0.4)}`,
-                }}
+                    borderTop: 1,
+                    borderBottom: 1,
+                    borderColor: "border.main",
+                })}
             >
                 <Stack spacing={1.5}>
                     <Typography variant="h6">{t("pages.home.achievements.subtitle")}</Typography>

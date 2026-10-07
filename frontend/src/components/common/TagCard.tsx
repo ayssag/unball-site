@@ -1,5 +1,4 @@
-import { Box, Typography, alpha } from "@mui/material";
-import theme from "@/theme";
+import { Box, Typography } from "@mui/material";
 
 export type TagCardProps = {
     tag: string;
@@ -9,8 +8,10 @@ export function TagCard({ tag }: TagCardProps) {
     return (
         <Box
             sx={{
-                border: `1px solid ${alpha(theme.palette.secondary.main, 0.4)}`,
-                padding: { xs: "4px 8px", sm: "6px 10px" },
+                border: 1,
+                borderColor: "border.main",
+                px: { xs: 1, sm: 1.25 },
+                py: { xs: 0.5, sm: 0.75 },
                 whiteSpace: "nowrap",
                 flexShrink: 0,
                 display: "inline-block",

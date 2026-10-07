@@ -1,4 +1,3 @@
-import theme from "@/theme";
 import { alpha, Box, Typography } from "@mui/material";
 
 export type PartnerItem = {
@@ -23,13 +22,14 @@ export function PartnerCard({ item }: PartnerCardProps) {
             href={url}
             target={url ? "_blank" : undefined}
             rel={url ? "noopener noreferrer" : undefined}
-            sx={{
+            sx={(theme) => ({
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
                 backgroundColor: alpha(theme.palette.background.default, 0.6),
-                border: `1px solid ${alpha(theme.palette.secondary.main, 0.4)}`,
+                border: 1,
+                borderColor: "border.main",
                 position: "relative",
                 width: "100%",
                 height: { xs: "160px", sm: "180px", md: "204px" },
@@ -39,10 +39,10 @@ export function PartnerCard({ item }: PartnerCardProps) {
                 color: "text.primary",
                 transition: "border-color 0.2s ease-in-out, background-color 0.2s ease-in-out",
                 "&:hover": url ? {
-                    borderColor: theme.palette.primary.main,
+                    borderColor: "primary.main",
                     backgroundColor: alpha(theme.palette.background.default, 0.8),
                 } : undefined,
-            }}
+            })}
         >
             <Box
                 sx={{ 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { alpha, MenuList, MenuItem, IconButton, Drawer } from "@mui/material";
+import { alpha, Box, MenuList, MenuItem, IconButton, Drawer } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { useTranslation } from "react-i18next";
@@ -7,7 +7,6 @@ import { FlexBoxBetween } from "@/shared/styled";
 import { NavButton } from "./NavButton";
 import { LogoLink } from "./LogoLink";
 import { LanguageSwitch } from "./LanguageSwitch";
-import theme from "@/theme";
 import Logo from '@/assets/images/logos/unball-logo.png';
 import { getRoutePath, type SupportedLang } from "@/i18n/routesMap";
 
@@ -47,7 +46,7 @@ const Navbar = ({ isTop }: Props) => {
     return (
         <nav style={{ position: "sticky", top: 0, zIndex: 1100, width: "100%" }}>
             <FlexBoxBetween
-                sx={{
+                sx={(theme) => ({
                     width: "100%",
                     boxSizing: "border-box",
                     backgroundColor: isScrolled
@@ -56,19 +55,18 @@ const Navbar = ({ isTop }: Props) => {
                     backdropFilter: "blur(12px)",
                     px: { xs: 2, sm: 4, md: 5 },
                     height: 80,
-                    borderBottom: isScrolled
-                        ? `1px solid ${theme.palette.primary.main}`
-                        : `1px solid ${alpha(theme.palette.secondary.main, 0.4)}`,
+                    borderBottom: "1px solid",
+                    borderColor: isScrolled ? "primary.main" : "border.main",
                     boxShadow: isScrolled
                         ? `0 4px 20px ${alpha(theme.palette.common.black, 0.4)}`
                         : "none",
                     transition: "all 0.3s ease-in-out",
-                }}
+                })}
             >
                 <LogoLink to={getRoutePath("home", currentLang)}>
                     <FlexBoxBetween sx={{ gap: 2 }}>
                         <img src={Logo} alt="Logo da UnBall" width={40} />
-                        <h2 style={{ color: `${theme.palette.primary.main}`, margin: 0 }}>UnBall</h2>
+                        <Box component="h2" sx={{ color: "primary.main", m: 0 }}>UnBall</Box>
                     </FlexBoxBetween>
                 </LogoLink>
                 <FlexBoxBetween sx={{ gap: { xs: 1, sm: 3 } }}>

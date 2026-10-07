@@ -13,7 +13,7 @@ const StyledMuiTextField = styled(TextField)(({ theme }) => ({
         },
     },
     "& .MuiInput-underline:before": {
-        borderBottom: `1px solid ${alpha(theme.palette.secondary.main, 0.4)}`,
+        borderBottom: `1px solid ${theme.palette.border.main}`,
     },
     "& .MuiInput-underline:hover:not(.Mui-disabled):before": {
         borderBottom: `1px solid ${theme.palette.secondary.main}`,
