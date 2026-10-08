@@ -1,39 +1,29 @@
 import { useState, useEffect } from "react";
-import { alpha, Box, MenuList, MenuItem, IconButton, Drawer } from "@mui/material";
+import { alpha, Box, IconButton, Drawer, Stack, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { useTranslation } from "react-i18next";
 import { FlexBoxBetween } from "@/shared/styled";
+import { NAVBAR_HEIGHT } from "@/theme";
 import { NavButton } from "./NavButton";
 import { LogoLink } from "./LogoLink";
 import { LanguageSwitch } from "./LanguageSwitch";
 import Logo from '@/assets/images/logos/unball-logo.png';
 import { useLocalizedPath } from "@/i18n/useLocalizedPath";
 
-export type NavbarProps = {
-    isTop?: boolean;
-};
-
-const Navbar = ({ isTop }: NavbarProps) => {
+function Navbar() {
     const { t } = useTranslation();
     const getPath = useLocalizedPath();
     const [mobileOpen, setMobileOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 80) {
-                setScrolled(true);
-            } else {
-                setScrolled(false);
-            }
-        };
+        const handleScroll = () => setScrolled(window.scrollY > 80);
 
-        window.addEventListener("scroll", handleScroll);
+        handleScroll();
+        window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
-
-    const isScrolled = isTop !== undefined ? !isTop || scrolled : scrolled;
 
     const navItems = [
         { key: "home", path: getPath("home"), label: t("navbar.home"), end: true },
@@ -44,20 +34,28 @@ const Navbar = ({ isTop }: NavbarProps) => {
     ];
 
     return (
-        <nav style={{ position: "sticky", top: 0, zIndex: 1100, width: "100%" }}>
+        <Box
+            component="nav"
+            sx={(theme) => ({
+                position: "sticky",
+                top: 0,
+                zIndex: theme.zIndex.appBar,
+                width: "100%",
+            })}
+        >
             <FlexBoxBetween
                 sx={(theme) => ({
                     width: "100%",
                     boxSizing: "border-box",
-                    backgroundColor: isScrolled
+                    backgroundColor: scrolled
                         ? alpha(theme.palette.background.paper, 0.95)
                         : alpha(theme.palette.background.default, 0.9),
                     backdropFilter: "blur(12px)",
                     px: { xs: 2, sm: 4, md: 5 },
-                    height: 80,
+                    height: NAVBAR_HEIGHT,
                     borderBottom: "1px solid",
-                    borderColor: isScrolled ? "primary.main" : "border.main",
-                    boxShadow: isScrolled
+                    borderColor: scrolled ? "primary.main" : "border.main",
+                    boxShadow: scrolled
                         ? `0 4px 20px ${alpha(theme.palette.common.black, 0.4)}`
                         : "none",
                     transition: "all 0.3s ease-in-out",
@@ -65,31 +63,39 @@ const Navbar = ({ isTop }: NavbarProps) => {
             >
                 <LogoLink to={getPath("home")}>
                     <FlexBoxBetween sx={{ gap: 2 }}>
-                        <img src={Logo} alt="Logo da UnBall" width={40} />
-                        <Box component="h2" sx={{ color: "primary.main", m: 0 }}>UnBall</Box>
+                        <img src={Logo} alt={t("navbar.logoAlt")} width={40} />
+                        <Typography
+                            variant="h2"
+                            component="span"
+                            sx={{ color: "primary.main", m: 0, fontSize: "1.5rem" }}
+                        >
+                            UnBall
+                        </Typography>
                     </FlexBoxBetween>
                 </LogoLink>
                 <FlexBoxBetween sx={{ gap: { xs: 1, sm: 3 } }}>
-                    <MenuList
+                    <Stack
+                        direction="row"
                         sx={{
                             display: { xs: "none", md: "flex" },
                             gap: { lg: 2, xl: 4 },
+                            alignItems: "center",
                         }}
                     >
                         {navItems.map((item) => (
-                            <MenuItem key={item.key}>
+                            <Box key={item.key} sx={{ px: 2, py: 1 }}>
                                 <NavButton to={item.path} end={item.end}>
                                     {item.label}
                                 </NavButton>
-                            </MenuItem>
+                            </Box>
                         ))}
-                    </MenuList>
+                    </Stack>
 
                     <LanguageSwitch />
 
                     <IconButton
                         color="inherit"
-                        aria-label="open menu"
+                        aria-label={t("navbar.openMenu")}
                         edge="end"
                         onClick={() => setMobileOpen(true)}
                         sx={{ display: { xs: "flex", md: "none" }, ml: 1 }}
@@ -114,25 +120,31 @@ const Navbar = ({ isTop }: NavbarProps) => {
                     },
                 }}
             >
-                    <IconButton
-                        color="primary"
-                        sx={{ display: "flex", justifyContent: "flex-end"}}
-                        onClick={() => setMobileOpen(false)}
-                    >
-                        <CloseIcon />
-                    </IconButton>
-                <MenuList sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+                <IconButton
+                    color="primary"
+                    aria-label={t("navbar.closeMenu")}
+                    sx={{ display: "flex", justifyContent: "flex-end"}}
+                    onClick={() => setMobileOpen(false)}
+                >
+                    <CloseIcon />
+                </IconButton>
+                <Stack sx={{ gap: 1 }}>
                     {navItems.map((item) => (
-                        <MenuItem key={item.key} onClick={() => setMobileOpen(false)} sx={{ py: 1.5 }}>
-                            <NavButton to={item.path} end={item.end} style={{ width: "100%", fontSize: "1rem" }}>
+                        <Box key={item.key} sx={{ py: 1.5, px: 2 }}>
+                            <NavButton
+                                to={item.path}
+                                end={item.end}
+                                onClick={() => setMobileOpen(false)}
+                                style={{ display: "block", width: "100%", fontSize: "1rem" }}
+                            >
                                 {item.label}
                             </NavButton>
-                        </MenuItem>
+                        </Box>
                     ))}
-                </MenuList>
+                </Stack>
             </Drawer>
-        </nav>
+        </Box>
     );
-};
+}
 
 export default Navbar;

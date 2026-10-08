@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Box, Stack } from "@mui/material";
-import AchievementBadge from "./AchievementBadge";
+import { useTranslation } from "react-i18next";
+import AchievementBadge, { type BadgeVariant } from "./AchievementBadge";
 import CarouselArrow from "./CarouselArrow";
 import type { AchievementItem } from "@/types/content";
 
@@ -8,25 +9,28 @@ export type AchievementCarouselProps = {
     items: AchievementItem[];
 };
 
-export function AchievementCarousel({ items }: AchievementCarouselProps) {
-    const [activeIndex, setActiveIndex] = useState(() => {
-        if (!items || items.length === 0) return 0;
-        return Math.floor(items.length / 2);
-    });
+const MAX_OFFSET = 2;
 
-    if (!items || items.length === 0) return null;
+function getVariant(offset: number): BadgeVariant {
+    const distance = Math.abs(offset);
+    if (distance === 0) return "center";
+    return distance === MAX_OFFSET ? "far" : "side";
+}
+
+export function AchievementCarousel({ items }: AchievementCarouselProps) {
+    const { t } = useTranslation();
+    const [activeIndex, setActiveIndex] = useState(() => Math.floor(items.length / 2));
+
+    if (items.length === 0) return null;
 
     const count = items.length;
 
-    const handlePrev = () => {
-        setActiveIndex((prev) => (prev - 1 + count) % count);
-    };
+    // Com poucos itens, limita os offsets para não repetir o mesmo item na tela.
+    const maxOffset = Math.min(MAX_OFFSET, Math.floor((count - 1) / 2));
+    const offsets = Array.from({ length: maxOffset * 2 + 1 }, (_, i) => i - maxOffset);
 
-    const handleNext = () => {
-        setActiveIndex((prev) => (prev + 1) % count);
-    };
-
-    const offsets = [-2, -1, 0, 1, 2];
+    const handlePrev = () => setActiveIndex((prev) => (prev - 1 + count) % count);
+    const handleNext = () => setActiveIndex((prev) => (prev + 1) % count);
 
     return (
         <Stack
@@ -39,7 +43,11 @@ export function AchievementCarousel({ items }: AchievementCarouselProps) {
                 boxSizing: "border-box",
             }}
         >
-            <CarouselArrow direction="left" onClick={handlePrev} />
+            <CarouselArrow
+                direction="left"
+                label={t("pages.home.achievements.previous")}
+                onClick={handlePrev}
+            />
 
             <Box
                 sx={{
@@ -54,21 +62,19 @@ export function AchievementCarousel({ items }: AchievementCarouselProps) {
                 {offsets.map((offset) => {
                     const itemIndex = (activeIndex + offset + count) % count;
                     const item = items[itemIndex];
-                    const isCenter = offset === 0;
-                    const isFarSide = Math.abs(offset) === 2;
+                    const variant = getVariant(offset);
 
                     return (
                         <Box
                             key={`${item.id}-${offset}`}
-                            sx={{ 
-                                display: isFarSide ? { xs: "none", lg: "block" } : "block",
+                            sx={{
+                                display: variant === "far" ? { xs: "none", lg: "block" } : "block",
                                 flexShrink: 0,
                             }}
                         >
                             <AchievementBadge
                                 achievement={item}
-                                isCenter={isCenter}
-                                isFarSide={isFarSide}
+                                variant={variant}
                                 onClick={() => setActiveIndex(itemIndex)}
                             />
                         </Box>
@@ -76,10 +82,13 @@ export function AchievementCarousel({ items }: AchievementCarouselProps) {
                 })}
             </Box>
 
-            <CarouselArrow direction="right" onClick={handleNext} />
+            <CarouselArrow
+                direction="right"
+                label={t("pages.home.achievements.next")}
+                onClick={handleNext}
+            />
         </Stack>
     );
 }
 
 export default AchievementCarousel;
-

@@ -6,14 +6,15 @@ import { useLocalizedPath } from "@/i18n/useLocalizedPath";
 import { PaperCard } from "./PaperCard";
 import type { PaperItem } from "@/types/content";
 import { SectionHeader } from "@/components/common/SectionHeader";
+import { useTranslatedList } from "@/hooks/useTranslatedList";
 
 function PapersSection() {
     const { t } = useTranslation();
     const getPath = useLocalizedPath();
-    const paperItems = t("pages.home.papers.items", { returnObjects: true }) as PaperItem[];
+    const paperItems = useTranslatedList<PaperItem>("pages.home.papers.items");
 
-    const hasMore = Array.isArray(paperItems) && paperItems.length > 2;
-    const displayedItems = Array.isArray(paperItems) ? paperItems.slice(0, 2) : [];
+    const hasMore = paperItems.length > 2;
+    const displayedItems = paperItems.slice(0, 2);
 
     return (
         <BoxSection>

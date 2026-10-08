@@ -20,7 +20,13 @@ export const contact = {
         messagePlaceholder: "Digite seu texto...",
         submit: "ENVIAR",
         sending: "ENVIANDO...",
-        success: "[OK] Mensagem enviada com sucesso! Entraremos em contato em breve."
+        success: "[OK] Mensagem enviada com sucesso! Entraremos em contato em breve.",
+        errors: {
+            requiredField: "Campo obrigatório",
+            invalidEmail: "E-mail inválido",
+            missingFields: "Por favor, preencha todos os campos obrigatórios.",
+            invalidEmailFormat: "Por favor, insira um formato de e-mail válido."
+        }
     },
     items: [
         {

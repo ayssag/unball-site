@@ -14,12 +14,10 @@ import type { LeagueItem, LeagueTrivia } from "@/types/content";
 export type { LeagueItem, LeagueTrivia };
 
 export type LeagueCardProps = {
-    item?: LeagueItem;
+    item: LeagueItem;
 };
 
 export function LeagueCard({ item }: LeagueCardProps) {
-    if (!item) return null;
-
     return (
         <Card>
             <Box
@@ -82,9 +80,7 @@ export function LeagueCard({ item }: LeagueCardProps) {
                                 color="primary"
                                 sx={{ fontSize: { xs: "1rem", sm: "1.25rem" }, textTransform: "none" }}
                             >
-                                {Array.isArray(item.trivia.description) 
-                                    ? item.trivia.description.join(" ") 
-                                    : item.trivia.description}
+                                {item.trivia.description}
                             </Typography>
                         </Stack>
                         <Box

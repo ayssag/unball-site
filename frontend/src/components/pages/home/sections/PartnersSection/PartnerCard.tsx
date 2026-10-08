@@ -4,11 +4,10 @@ import type { PartnerItem } from "@/types/content";
 export type { PartnerItem };
 
 export type PartnerCardProps = {
-    item?: PartnerItem;
+    item: PartnerItem;
 };
 
 export function PartnerCard({ item }: PartnerCardProps) {
-    if (!item) return null;
     
     const { type, name, logoUrl, url } = item;
     

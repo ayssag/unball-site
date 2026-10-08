@@ -1,25 +1,23 @@
+import { Navigate, Outlet, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useParams, useNavigate, useLocation, Outlet } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import type { SupportedLang } from './routesMap';
-
-const VALID_LANGS: SupportedLang[] = ['pt', 'en'];
+import { SUPPORTED_LANGS, type SupportedLang } from './routesMap';
 
 export function LanguageGuard() {
   const { lang } = useParams<{ lang?: string }>();
   const { i18n } = useTranslation();
-  const navigate = useNavigate();
-  const location = useLocation();
+
+  const isValid = SUPPORTED_LANGS.includes(lang as SupportedLang);
 
   useEffect(() => {
-    if (!lang || !VALID_LANGS.includes(lang as SupportedLang)) {      navigate('/pt', { replace: true });
-      return;
-    }
-
-    if (i18n.language !== lang) {
+    if (isValid && i18n.language !== lang) {
       i18n.changeLanguage(lang);
     }
-  }, [lang, i18n, navigate, location]);
+  }, [isValid, lang, i18n]);
+
+  if (!isValid) {
+    return <Navigate to="/pt" replace />;
+  }
 
   return <Outlet />;
 }

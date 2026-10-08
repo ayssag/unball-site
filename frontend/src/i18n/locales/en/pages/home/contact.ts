@@ -20,7 +20,13 @@ export const contact = {
         messagePlaceholder: "Type your text...",
         submit: "SEND",
         sending: "SENDING...",
-        success: "[OK] Message sent successfully! We will get in touch soon."
+        success: "[OK] Message sent successfully! We will get in touch soon.",
+        errors: {
+            requiredField: "Required field",
+            invalidEmail: "Invalid email",
+            missingFields: "Please fill in all required fields.",
+            invalidEmailFormat: "Please enter a valid email format."
+        }
     },
     items: [
         {

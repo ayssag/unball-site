@@ -11,6 +11,9 @@ export const FONTS = {
   tech: "'Trispace Variable', sans-serif",
 } as const;
 
+/** Altura (px) da Navbar fixa; usada também como offset do SystemStatus. */
+export const NAVBAR_HEIGHT = 80;
+
 declare module '@mui/material/styles' {
   interface BorderPalette {
     main: string;

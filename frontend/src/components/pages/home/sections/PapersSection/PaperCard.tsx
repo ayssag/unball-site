@@ -17,11 +17,10 @@ import type { PaperItem } from "@/types/content";
 export type { PaperItem };
 
 export type PaperCardProps = {
-    item?: PaperItem;
+    item: PaperItem;
 };
 
 export function PaperCard({ item }: PaperCardProps) {
-    if (!item) return null;
 
     return (
         <Card>

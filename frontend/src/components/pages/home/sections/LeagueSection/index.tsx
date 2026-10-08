@@ -4,10 +4,11 @@ import { useTranslation } from "react-i18next";
 import { LeagueCard } from "./LeagueCard";
 import type { LeagueItem } from "@/types/content";
 import { SectionHeader } from "@/components/common/SectionHeader";
+import { useTranslatedList } from "@/hooks/useTranslatedList";
 
 function LeagueSection() {
     const { t } = useTranslation();
-    const leagueItems = t("pages.home.league.items", { returnObjects: true }) as LeagueItem[];
+    const leagueItems = useTranslatedList<LeagueItem>("pages.home.league.items");
 
     return (
         <BoxSection>
@@ -22,7 +23,7 @@ function LeagueSection() {
                         spacing={3}
                         sx={{ width: "100%" }}
                     >
-                        {Array.isArray(leagueItems) && leagueItems.map((item, index) => (
+                        {leagueItems.map((item, index) => (
                             <LeagueCard key={item.shortName || index} item={item} />
                         ))}
                     </Stack>

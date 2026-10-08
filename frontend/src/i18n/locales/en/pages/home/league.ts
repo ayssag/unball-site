@@ -9,7 +9,7 @@ export const league = {
             tags: ["PHYSICAL", "SIMULATED"],
             trivia: {
                 title: "MAXIMUM VOLUMETRY",
-                description: ["7.5 cm³"]
+                description: "7.5 cm³"
             }
         },
         {
@@ -19,7 +19,7 @@ export const league = {
             tags: ["PHYSICAL"],
             trivia: {
                 title: "TRACTION SYSTEM",
-                description: ["Omnidirectional"]
+                description: "Omnidirectional"
             }
         }
     ]

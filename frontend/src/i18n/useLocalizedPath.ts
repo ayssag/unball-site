@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { getRoutePath, type SupportedLang } from "./routesMap";
+import { getRoutePath, type RouteKey, type SupportedLang } from "./routesMap";
 
 export function useCurrentLang(): SupportedLang {
   const { i18n } = useTranslation();
@@ -8,5 +8,5 @@ export function useCurrentLang(): SupportedLang {
 
 export function useLocalizedPath() {
   const lang = useCurrentLang();
-  return (key: string) => getRoutePath(key, lang);
+  return (key: RouteKey) => getRoutePath(key, lang);
 }

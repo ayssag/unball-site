@@ -4,4 +4,7 @@ export const navbar = {
   papers: "Papers",
   partners: "Partners",
   contact: "Contact",
+  logoAlt: "UnBall logo",
+  openMenu: "Open menu",
+  closeMenu: "Close menu",
 };

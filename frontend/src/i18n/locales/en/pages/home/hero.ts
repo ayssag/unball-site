@@ -4,4 +4,5 @@ export const hero = {
   description: "We are UnBall, a robot soccer team and extension project formed by students from the University of Brasília competing in Robocup Brazil categories.",
   ctaPartners: "BECOME A SPONSOR",
   ctaAbout: "MEET THE TEAM",
+  imageAlt: "UnBolinha, UnBall's mascot",
 };

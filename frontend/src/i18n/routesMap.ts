@@ -1,11 +1,12 @@
-export type SupportedLang = 'pt' | 'en';
+export const SUPPORTED_LANGS = ['pt', 'en'] as const;
+export type SupportedLang = (typeof SUPPORTED_LANGS)[number];
 
 export interface RouteDefinition {
   key: string;
   paths: Record<SupportedLang, string>;
 }
 
-export const ROUTES: RouteDefinition[] = [
+export const ROUTES = [
   {
     key: 'home',
     paths: {
@@ -41,22 +42,20 @@ export const ROUTES: RouteDefinition[] = [
       en: '/en/contact',
     },
   },
-];
+] as const satisfies readonly RouteDefinition[];
+
+export type RouteKey = (typeof ROUTES)[number]['key'];
 
 /**
  * Retorna o caminho equivalente no novo idioma com base na rota atual.
  */
 export function getEquivalentPath(currentPath: string, targetLang: SupportedLang): string {
-  // Encontrar a rota correspondente ao caminho atual
-  const matchedRoute = ROUTES.find((route) => {
-    return Object.values(route.paths).some((path) => {
-      // Casos de rotas exatas ou sem a barra final
-      if (path === currentPath) return true;
-      if (path === '/pt' && (currentPath === '/pt/' || currentPath === '/pt')) return true;
-      if (path === '/en' && (currentPath === '/en/' || currentPath === '/en')) return true;
-      return false;
-    });
-  });
+  // Normaliza a barra final (ex.: "/pt/" -> "/pt")
+  const normalized = currentPath.length > 1 ? currentPath.replace(/\/$/, '') : currentPath;
+
+  const matchedRoute = ROUTES.find((route) =>
+    Object.values<string>(route.paths).includes(normalized),
+  );
 
   if (matchedRoute) {
     return matchedRoute.paths[targetLang];
@@ -69,7 +68,7 @@ export function getEquivalentPath(currentPath: string, targetLang: SupportedLang
 /**
  * Retorna os slugs de caminho para React Router v7 dada a linguagem
  */
-export function getRoutePath(key: string, lang: SupportedLang): string {
+export function getRoutePath(key: RouteKey, lang: SupportedLang): string {
   const route = ROUTES.find((r) => r.key === key);
   if (!route) return `/${lang}`;
   return route.paths[lang];

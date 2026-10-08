@@ -1,20 +1,20 @@
 import { IconButton, alpha } from "@mui/material";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 
-export type ArrowSide = "left" | "right";
+export type ArrowDirection = "left" | "right";
 
 export type CarouselArrowProps = {
-    side?: ArrowSide;
-    direction?: ArrowSide;
+    direction: ArrowDirection;
+    label: string;
     onClick?: () => void;
 };
 
-export function CarouselArrow({ side, direction, onClick }: CarouselArrowProps) {
-    const selectedSide = direction || side || "left";
-    const isLeft = selectedSide === "left";
+export function CarouselArrow({ direction, label, onClick }: CarouselArrowProps) {
+    const Icon = direction === "left" ? ChevronLeft : ChevronRight;
 
     return (
         <IconButton
+            aria-label={label}
             onClick={onClick}
             sx={(theme) => ({
                 color: alpha(theme.palette.text.primary, 0.7),
@@ -26,11 +26,7 @@ export function CarouselArrow({ side, direction, onClick }: CarouselArrowProps) 
                 },
             })}
         >
-            {isLeft ? (
-                <ChevronLeft sx={{ fontSize: { xs: 28, sm: 36, md: 40 } }} />
-            ) : (
-                <ChevronRight sx={{ fontSize: { xs: 28, sm: 36, md: 40 } }} />
-            )}
+            <Icon sx={{ fontSize: { xs: 28, sm: 36, md: 40 } }} />
         </IconButton>
     );
 }

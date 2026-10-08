@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Box, useTheme, type SxProps, type Theme } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import type { ResponsiveStyleValue } from "@mui/system";
 import defaultHeroImg from "@/assets/images/unbolinha/bolinha_sentado.png";
 import TextBadge from "./TextBadge";
@@ -7,15 +7,15 @@ import TextBadge from "./TextBadge";
 export type HeroImageProps = {
     src?: string;
     alt?: string;
-    label?: string;
     width?: ResponsiveStyleValue<string | number>;
-    sx?: SxProps<Theme>;
 };
+
+const DEFAULT_WIDTH = { xs: "100%", sm: "380px", lg: "410px", xl: "650px" };
 
 export function HeroImage({
     src = defaultHeroImg,
-    alt = "UnBolinha, Mascote da UnBall",
-    width = { xs: "100%", sm: "380px", lg: "410px", xl: "650px" },
+    alt = "",
+    width = DEFAULT_WIDTH,
 }: HeroImageProps) {
     const theme = useTheme();
     const imgRef = useRef<HTMLImageElement>(null);
@@ -47,11 +47,9 @@ export function HeroImage({
         });
 
         observer.observe(imgEl);
-        window.addEventListener("resize", updateDimensions);
 
         return () => {
             observer.disconnect();
-            window.removeEventListener("resize", updateDimensions);
         };
     }, []);
 
@@ -94,8 +92,9 @@ export function HeroImage({
                 />
 
                 {/* SVG para linhas de extensão, cota e setas */}
-                <svg
-                    style={{
+                <Box
+                    component="svg"
+                    sx={{
                         position: "absolute",
                         top: 0,
                         left: 0,
@@ -120,7 +119,7 @@ export function HeroImage({
                     <polygon points={`${imgW + 22},0 ${imgW + 18},8 ${imgW + 22},6 ${imgW + 26},8`} fill={primaryColor} />
                     {/* Seta inferior */}
                     <polygon points={`${imgW + 22},${imgH} ${imgW + 18},${imgH - 8} ${imgW + 22},${imgH - 6} ${imgW + 26},${imgH - 8}`} fill={primaryColor} />
-                </svg>
+                </Box>
 
                 {/* Badge do Texto da Cota de Largura */}
                 <TextBadge value={imgW} position="top" />

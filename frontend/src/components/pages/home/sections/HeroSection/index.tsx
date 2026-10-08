@@ -47,7 +47,7 @@ function HeroSection() {
                     </Box>
                 </SectionHeader>
 
-                <HeroImage />
+                <HeroImage alt={t("pages.home.hero.imageAlt")} />
             </FlexBoxBetween>
         </BoxSection>
     );

@@ -3,10 +3,11 @@ import { useTranslation } from "react-i18next";
 import { AchievementCarousel } from "./AchievementCarousel";
 import type { AchievementItem } from "@/types/content";
 import { SectionHeader } from "@/components/common/SectionHeader";
+import { useTranslatedList } from "@/hooks/useTranslatedList";
 
 function AchievementsSection() {
     const { t } = useTranslation();
-    const achievementItems = t("pages.home.achievements.items", { returnObjects: true }) as AchievementItem[];
+    const achievementItems = useTranslatedList<AchievementItem>("pages.home.achievements.items");
 
     return (
         <BoxSection>
@@ -32,7 +33,7 @@ function AchievementsSection() {
                     spacing={1.5}
                 />
 
-                <AchievementCarousel items={Array.isArray(achievementItems) ? achievementItems : []} />
+                <AchievementCarousel items={achievementItems} />
             </Panel>
         </BoxSection>
     );

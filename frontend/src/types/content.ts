@@ -18,7 +18,7 @@ export type AchievementItem = {
 
 export type LeagueTrivia = {
     title: string;
-    description: string | string[];
+    description: string;
 };
 
 export type LeagueItem = {

@@ -17,6 +17,7 @@ import { useState, type ReactNode } from "react"
 import WorkAreaDescription from "./WorkAreaDescription"
 
 import { SectionHeader } from "@/components/common/SectionHeader"
+import { useTranslatedList } from "@/hooks/useTranslatedList"
 
 const iconMap: Record<string, ReactNode> = {
     Visibility: <Visibility />,
@@ -31,7 +32,7 @@ import type { WorkAreaItem } from "@/types/content";
 function RobocupSection() {
     const { t } = useTranslation();
     const [activeIndex, setActiveIndex] = useState(0);
-    const workAreaItems = t("pages.home.robocup.workAreas.items", { returnObjects: true }) as WorkAreaItem[];
+    const workAreaItems = useTranslatedList<WorkAreaItem>("pages.home.robocup.workAreas.items");
 
     return (
         <BoxSection>
@@ -66,7 +67,7 @@ function RobocupSection() {
                         {t("pages.home.robocup.workAreas.title")}
                     </Typography>
                     <Grid container spacing={1.5}>
-                        {Array.isArray(workAreaItems) && workAreaItems.map((item, index) => (
+                        {workAreaItems.map((item, index) => (
                             <Grid key={index} size={{ xs: 6, sm: 4 }}>
                                 <WorkAreaBadge
                                     title={item.title}
