@@ -1,10 +1,9 @@
 import { 
     Stack, 
     Typography, 
-    Grid, 
-    alpha 
+    Grid
 } from "@mui/material"
-import { BoxSection, FlexBoxBetween } from "@/shared/styled"
+import { BoxSection, Panel } from "@/shared/styled"
 import { useTranslation } from "react-i18next"
 import WorkAreaBadge from "./WorkAreaBadge"
 import {
@@ -36,19 +35,18 @@ function RobocupSection() {
 
     return (
         <BoxSection>
-            <FlexBoxBetween
-                sx={(theme) => ({
+            <Panel
+                bordered="y"
+                sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
                     width: "100%",
                     paddingY: { xs: 4, sm: 6, md: 10 },
                     paddingX: { xs: 2, sm: 3, md: 4 }, 
                     gap: { xs: 4, md: 6 },
                     flexDirection: { xs: "column", md: "row" },
                     alignItems: { xs: "stretch", md: "flex-start" },
-                    backgroundColor: alpha(theme.palette.background.paper, 0.4),
-                    borderTop: 1,
-                    borderBottom: 1,
-                    borderColor: "border.main",
-                })}
+                }}
             >
                 <SectionHeader
                     subtitle={t("pages.home.robocup.subtitle")}
@@ -81,7 +79,7 @@ function RobocupSection() {
                     </Grid>
                     <WorkAreaDescription workArea={workAreaItems[activeIndex]} />
                 </Stack>
-            </FlexBoxBetween>
+            </Panel>
         </BoxSection>
     )
 }

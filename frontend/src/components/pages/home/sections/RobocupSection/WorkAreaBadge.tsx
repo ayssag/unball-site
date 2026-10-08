@@ -1,4 +1,5 @@
-import { Stack, Typography, alpha } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
+import { Panel } from "@/shared/styled";
 import type { ReactNode } from "react";
 
 export type WorkAreaBadgeProps = {
@@ -11,9 +12,11 @@ export type WorkAreaBadgeProps = {
 function WorkAreaBadge({ title, icon, isActive, onClick }: WorkAreaBadgeProps) {
     return (
         <Stack
+            component={Panel}
+            bordered="all"
             onClick={onClick}
             spacing={1}
-            sx={(theme) => ({
+            sx={{
                 width: "100%",
                 height: "100%",
                 minHeight: { xs: 90, sm: 100, md: 110 },
@@ -21,8 +24,6 @@ function WorkAreaBadge({ title, icon, isActive, onClick }: WorkAreaBadgeProps) {
                 alignItems: "center",
                 paddingX: { xs: 1, sm: 2 },
                 paddingY: { xs: 1.5, sm: 2 },
-                backgroundColor: alpha(theme.palette.background.paper, 0.4),
-                border: 1,
                 borderColor: isActive ? "primary.main" : "border.main",
                 transition: "all 0.2s ease-in-out",
                 boxSizing: "border-box",
@@ -34,7 +35,7 @@ function WorkAreaBadge({ title, icon, isActive, onClick }: WorkAreaBadgeProps) {
                     color: "primary.main",
                     fontSize: { xs: 22, sm: 24, md: 28 },
                 }
-            })}
+            }}
         >
             {icon}
             <Typography 

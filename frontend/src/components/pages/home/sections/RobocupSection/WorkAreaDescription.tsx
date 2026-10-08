@@ -1,4 +1,5 @@
-import { Box, Typography, alpha } from "@mui/material"
+import { Typography } from "@mui/material"
+import { Panel } from "@/shared/styled"
 
 import type { WorkAreaItem } from "@/types/content";
 
@@ -10,16 +11,14 @@ function WorkAreaDescription({ workArea }: WorkAreaDescriptionProps) {
     if (!workArea) return null;
 
     return (
-        <Box
-            sx={(theme) => ({
+        <Panel
+            bordered="all"
+            sx={{
                 justifyContent: "center",
                 alignItems: "center",
                 paddingX: { xs: 2, sm: 3 },
                 paddingY: { xs: 2, sm: 2.5 },
-                backgroundColor: alpha(theme.palette.background.paper, 0.4),
-                border: 1,
-                borderColor: "border.main",
-            })}
+            }}
         >
             <Typography 
                 variant="h6"
@@ -38,7 +37,7 @@ function WorkAreaDescription({ workArea }: WorkAreaDescriptionProps) {
             >
                 {workArea.description}
             </Typography>
-        </Box>
+        </Panel>
     )
 }
 

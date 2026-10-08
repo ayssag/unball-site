@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { styled, alpha } from "@mui/material/styles";
 
 export const FlexBoxBetween = styled(Box)({
   display: "flex",
@@ -26,3 +26,21 @@ export const BoxSection = styled(Box)(({ theme }) => ({
     paddingBottom: theme.spacing(6),
   },
 }));
+
+export interface PanelProps {
+  bordered?: "all" | "y" | "x" | "none";
+}
+
+export const Panel = styled(Box, {
+  shouldForwardProp: (prop) => prop !== "bordered",
+})<PanelProps>(({ theme, bordered = "all" }) => ({
+  backgroundColor: alpha(theme.palette.background.paper, 0.4),
+  borderColor: theme.palette.border.main,
+  borderStyle: "solid",
+  borderWidth: 0,
+  ...(bordered === "all" && { borderWidth: 1 }),
+  ...(bordered === "y" && { borderTopWidth: 1, borderBottomWidth: 1 }),
+  ...(bordered === "x" && { borderLeftWidth: 1, borderRightWidth: 1 }),
+}));
+
+export const OutlinedBox = Panel;
