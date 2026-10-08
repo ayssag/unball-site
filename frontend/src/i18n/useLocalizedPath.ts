@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+
 import { getRoutePath, type RouteKey, type SupportedLang } from "./routesMap";
 
 export function useCurrentLang(): SupportedLang {

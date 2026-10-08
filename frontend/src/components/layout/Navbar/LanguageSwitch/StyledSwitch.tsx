@@ -1,72 +1,72 @@
-import { styled, alpha } from "@mui/material/styles";
 import { Switch } from "@mui/material";
+import { alpha,styled } from "@mui/material/styles";
 
 export const StyledSwitch = styled(Switch)(({ theme }) => ({
   width: 74,
   height: 32,
   padding: 0,
-  display: 'flex',
-  userSelect: 'none',
-  '& .MuiSwitch-switchBase': {
+  display: "flex",
+  userSelect: "none",
+  "& .MuiSwitch-switchBase": {
     padding: 3,
-    transitionDuration: '250ms',
-    '&.Mui-checked': {
-      transform: 'translateX(38px)',
+    transitionDuration: "250ms",
+    "&.Mui-checked": {
+      transform: "translateX(38px)",
       color: theme.palette.text.primary,
-      '& .MuiSwitch-thumb:before': {
+      "& .MuiSwitch-thumb:before": {
         content: "'EN'",
       },
-      '& + .MuiSwitch-track': {
+      "& + .MuiSwitch-track": {
         backgroundColor: alpha(theme.palette.secondary.main, 0.1),
         opacity: 1,
         border: `1px solid ${alpha(theme.palette.secondary.main, 0.3)}`,
       },
     },
   },
-  '& .MuiSwitch-thumb': {
+  "& .MuiSwitch-thumb": {
     backgroundColor: theme.palette.primary.main,
     width: 30,
     height: 26,
     borderRadius: 14,
-    boxShadow: 'none',
-    position: 'relative',
-    '&:before': {
+    boxShadow: "none",
+    position: "relative",
+    "&:before": {
       content: "'PT'",
-      position: 'absolute',
-      width: '100%',
-      height: '100%',
+      position: "absolute",
+      width: "100%",
+      height: "100%",
       left: 0,
       top: 0,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
       fontFamily: theme.typography.fontFamilyMono,
       fontWeight: 700,
-      fontSize: '0.75rem',
+      fontSize: "0.75rem",
       color: theme.palette.primary.contrastText,
     },
   },
-  '& .MuiSwitch-track': {
+  "& .MuiSwitch-track": {
     borderRadius: 20,
     backgroundColor: alpha(theme.palette.secondary.main, 0.1),
     border: `1px solid ${alpha(theme.palette.secondary.main, 0.3)}`,
     opacity: 1,
-    boxSizing: 'border-box',
-    position: 'relative',
-    '&:before, &:after': {
-      position: 'absolute',
-      top: '50%',
-      transform: 'translateY(-50%)',
+    boxSizing: "border-box",
+    position: "relative",
+    "&:before, &:after": {
+      position: "absolute",
+      top: "50%",
+      transform: "translateY(-50%)",
       fontFamily: theme.typography.fontFamilyMono,
       fontWeight: 700,
-      fontSize: '0.75rem',
+      fontSize: "0.75rem",
       color: theme.palette.text.primary,
     },
-    '&:before': {
+    "&:before": {
       content: "'PT'",
       left: 9,
     },
-    '&:after': {
+    "&:after": {
       content: "'EN'",
       right: 9,
     },

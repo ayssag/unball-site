@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { styled, alpha } from "@mui/material/styles";
+import { alpha,styled } from "@mui/material/styles";
 
 export const FlexBoxBetween = styled(Box)({
   display: "flex",
@@ -9,7 +9,7 @@ export const FlexBoxBetween = styled(Box)({
 
 export const BoxSection = styled(Box)(({ theme }) => ({
   display: "flex",
-  justifyContent: "center", 
+  justifyContent: "center",
   alignItems: "center",
   paddingLeft: theme.spacing(3),
   paddingRight: theme.spacing(3),
@@ -42,4 +42,3 @@ export const Panel = styled(Box, {
   ...(bordered === "y" && { borderTopWidth: 1, borderBottomWidth: 1 }),
   ...(bordered === "x" && { borderLeftWidth: 1, borderRightWidth: 1 }),
 }));
-

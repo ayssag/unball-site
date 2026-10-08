@@ -1,6 +1,6 @@
-import React from "react";
-import { Stack, Typography } from "@mui/material";
 import type { SxProps, Theme } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
+import React from "react";
 
 export interface SectionHeaderProps {
   subtitle?: string;
@@ -50,9 +50,7 @@ export function SectionHeader({
         {title}
       </Typography>
       {description && (
-        <Typography color="text.secondary">
-          {description}
-        </Typography>
+        <Typography color="text.secondary">{description}</Typography>
       )}
       {children}
     </Stack>

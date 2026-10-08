@@ -1,4 +1,4 @@
-export const SUPPORTED_LANGS = ['pt', 'en'] as const;
+export const SUPPORTED_LANGS = ["pt", "en"] as const;
 export type SupportedLang = (typeof SUPPORTED_LANGS)[number];
 
 export interface RouteDefinition {
@@ -8,53 +8,57 @@ export interface RouteDefinition {
 
 export const ROUTES = [
   {
-    key: 'home',
+    key: "home",
     paths: {
-      pt: '/pt',
-      en: '/en',
+      pt: "/pt",
+      en: "/en",
     },
   },
   {
-    key: 'about',
+    key: "about",
     paths: {
-      pt: '/pt/sobre-nos',
-      en: '/en/about',
+      pt: "/pt/sobre-nos",
+      en: "/en/about",
     },
   },
   {
-    key: 'papers',
+    key: "papers",
     paths: {
-      pt: '/pt/publicacoes',
-      en: '/en/papers',
+      pt: "/pt/publicacoes",
+      en: "/en/papers",
     },
   },
   {
-    key: 'partners',
+    key: "partners",
     paths: {
-      pt: '/pt/apoiadores',
-      en: '/en/partners',
+      pt: "/pt/apoiadores",
+      en: "/en/partners",
     },
   },
   {
-    key: 'contact',
+    key: "contact",
     paths: {
-      pt: '/pt/contato',
-      en: '/en/contact',
+      pt: "/pt/contato",
+      en: "/en/contact",
     },
   },
 ] as const satisfies readonly RouteDefinition[];
 
-export type RouteKey = (typeof ROUTES)[number]['key'];
+export type RouteKey = (typeof ROUTES)[number]["key"];
 
 /**
  * Retorna o caminho equivalente no novo idioma com base na rota atual.
  */
-export function getEquivalentPath(currentPath: string, targetLang: SupportedLang): string {
+export function getEquivalentPath(
+  currentPath: string,
+  targetLang: SupportedLang
+): string {
   // Normaliza a barra final (ex.: "/pt/" -> "/pt")
-  const normalized = currentPath.length > 1 ? currentPath.replace(/\/$/, '') : currentPath;
+  const normalized =
+    currentPath.length > 1 ? currentPath.replace(/\/$/, "") : currentPath;
 
   const matchedRoute = ROUTES.find((route) =>
-    Object.values<string>(route.paths).includes(normalized),
+    Object.values<string>(route.paths).includes(normalized)
   );
 
   if (matchedRoute) {

@@ -1,7 +1,8 @@
-import { Navigate, Outlet, useParams } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { SUPPORTED_LANGS, type SupportedLang } from './routesMap';
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { Navigate, Outlet, useParams } from "react-router-dom";
+
+import { SUPPORTED_LANGS, type SupportedLang } from "./routesMap";
 
 export function LanguageGuard() {
   const { lang } = useParams<{ lang?: string }>();

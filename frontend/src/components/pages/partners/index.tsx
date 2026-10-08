@@ -1,10 +1,10 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 function Partners() {
   const { t } = useTranslation();
   return (
     <div>
-      <h1>{t('pages.partners.title')}</h1>
+      <h1>{t("pages.partners.title")}</h1>
     </div>
   );
 }
