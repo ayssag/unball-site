@@ -24,16 +24,7 @@ export function PaperCard({ item }: PaperCardProps) {
     if (!item) return null;
 
     return (
-        <Card
-            sx={{
-                width: "100%",
-                padding: { xs: 2, sm: 3 },
-                position: "relative",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-            }}
-        >
+        <Card>
             <Box 
                 sx={{ 
                     display: "flex", 

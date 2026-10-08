@@ -21,16 +21,7 @@ export function LeagueCard({ item }: LeagueCardProps) {
     if (!item) return null;
 
     return (
-        <Card
-            sx={{
-                width: "100%",
-                padding: { xs: 2, sm: 3 },
-                position: "relative",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-            }}
-        >
+        <Card>
             <Box
                 sx={{
                     position: "absolute",

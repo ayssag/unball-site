@@ -140,10 +140,19 @@ export const theme = createTheme({
     },
     MuiCard: {
       styleOverrides: {
-        root: {
-          border: `1px solid ${alpha(SECONDARY_MAIN, 0.2)}`,
+        root: ({ theme }) => ({
+          width: '100%',
+          padding: theme.spacing(2),
+          [theme.breakpoints.up('sm')]: {
+            padding: theme.spacing(3),
+          },
+          position: 'relative',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          border: `1px solid ${theme.palette.border.subtle}`,
           backgroundImage: 'none',
-        },
+        }),
       },
     },
     MuiButton: {

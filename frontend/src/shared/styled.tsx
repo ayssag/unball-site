@@ -43,4 +43,3 @@ export const Panel = styled(Box, {
   ...(bordered === "x" && { borderLeftWidth: 1, borderRightWidth: 1 }),
 }));
 
-export const OutlinedBox = Panel;

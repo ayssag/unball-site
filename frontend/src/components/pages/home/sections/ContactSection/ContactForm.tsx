@@ -103,6 +103,7 @@ function ContactForm() {
         <Card
             sx={(theme) => ({
                 width: "100%",
+                p: 0,
                 backgroundColor: "background.default",
                 border: 1,
                 borderColor: "border.main",
