@@ -1,10 +1,12 @@
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import { Email, GitHub, Instagram, LinkedIn } from "@mui/icons-material";
+import { alpha, Box, Divider, Grid, IconButton, Stack, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 import Logo from "@/assets/images/logos/unball-logo.png";
 import { useTranslatedList } from "@/hooks/useTranslatedList";
 import { useLocalizedPath } from "@/i18n/useLocalizedPath";
+import { FlexBoxBetween } from "@/shared/styled";
 import type { InstitutionalItem } from "@/types/content";
 
 function Footer() {
@@ -30,21 +32,25 @@ function Footer() {
             label: `${t("footer.labels.email")}:`,
             value: "equipeunball@gmail.com",
             href: "mailto:equipeunball@gmail.com",
+            icon: <Email />
         },
         {
             label: `${t("footer.labels.github")}:`,
             value: "github.com/unball",
             href: "https://github.com/unball",
+            icon: <GitHub />
         },
         {
             label: `${t("footer.labels.instagram")}:`,
             value: "@equipe.unball",
             href: "https://www.instagram.com/equipe.unball/",
+            icon: <Instagram />
         },
         {
             label: `${t("footer.labels.linkedin")}:`,
             value: "/company/equipe-unball",
             href: "https://www.linkedin.com/company/unball/",
+            icon: <LinkedIn />
         },
     ];
 
@@ -91,7 +97,7 @@ function Footer() {
                                             color: "text.secondary"
                                         })}
                                     >
-                                           {line.label} {line.value}
+                                        {line.label} {line.value}
                                     </Typography>
                                 ) )
                             }
@@ -157,6 +163,46 @@ function Footer() {
                     </Stack>
                 </Grid>
             </Grid>
+            <Divider
+                sx={(theme) => ({
+                    my: 6,
+                    borderColor: alpha(theme.palette.border.subtle, 0.4)
+                })}
+            />
+            <FlexBoxBetween>
+                <Typography
+                    sx={(theme) => ({
+                        fontFamily: theme.typography.fontFamilyMono,
+                        fontSize: "0.75rem",
+                        color: alpha(theme.palette.text.secondary, 0.6)
+                    })}
+                >
+                    {t("footer.bottomText")}
+                </Typography>
+                <Stack direction="row" spacing={1.25}>
+                    {
+                        contactLines.map((line, index) => (
+                            <IconButton 
+                                key={index} 
+                                href={line.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                sx={(theme) => ({
+                                    color: "text.primary",
+                                    transition: "color 0.2s ease-in-out, transform 0.2s ease-in-out",
+                                    "&:hover": {
+                                        color: theme.palette.primary.main,
+                                        backgroundColor: "transparent",
+                                        transform: "translateY(-1px)",
+                                    },
+                                })}
+                            >
+                                {line.icon}
+                            </IconButton>
+                        ))
+                    }
+                </Stack>
+            </FlexBoxBetween>
         </Box>
     );
 }
