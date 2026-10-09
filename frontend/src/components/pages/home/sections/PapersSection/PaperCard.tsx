@@ -16,8 +16,6 @@ import type { PaperItem } from "@/types/content";
 
 import { YearBadge } from "./YearBadge";
 
-export type { PaperItem };
-
 export type PaperCardProps = {
   item: PaperItem;
 };

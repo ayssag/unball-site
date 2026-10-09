@@ -2,8 +2,6 @@ import { alpha, Box, Typography } from "@mui/material";
 
 import type { PartnerItem } from "@/types/content";
 
-export type { PartnerItem };
-
 export type PartnerCardProps = {
   item: PartnerItem;
 };

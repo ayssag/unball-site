@@ -28,16 +28,18 @@ export function AchievementCarousel({ items }: AchievementCarouselProps) {
   if (items.length === 0) return null;
 
   const count = items.length;
+  const safeActiveIndex = activeIndex < count ? activeIndex : 0;
 
-  // Com poucos itens, limita os offsets para não repetir o mesmo item na tela.
   const maxOffset = Math.min(MAX_OFFSET, Math.floor((count - 1) / 2));
   const offsets = Array.from(
     { length: maxOffset * 2 + 1 },
     (_, i) => i - maxOffset
   );
 
-  const handlePrev = () => setActiveIndex((prev) => (prev - 1 + count) % count);
-  const handleNext = () => setActiveIndex((prev) => (prev + 1) % count);
+  const handlePrev = () =>
+    setActiveIndex((prev) => ((prev < count ? prev : 0) - 1 + count) % count);
+  const handleNext = () =>
+    setActiveIndex((prev) => ((prev < count ? prev : 0) + 1) % count);
 
   return (
     <Stack
@@ -67,7 +69,7 @@ export function AchievementCarousel({ items }: AchievementCarouselProps) {
         }}
       >
         {offsets.map((offset) => {
-          const itemIndex = (activeIndex + offset + count) % count;
+          const itemIndex = (safeActiveIndex + offset + count) % count;
           const item = items[itemIndex];
           const variant = getVariant(offset);
 

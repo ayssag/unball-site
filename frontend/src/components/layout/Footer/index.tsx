@@ -12,8 +12,8 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 import Logo from "@/assets/images/logos/unball-logo.png";
+import { useNavItems } from "@/hooks/useNavItems";
 import { useTranslatedList } from "@/hooks/useTranslatedList";
-import { useLocalizedPath } from "@/i18n/useLocalizedPath";
 import { FlexBoxBetween } from "@/shared/styled";
 import type { InstitutionalItem } from "@/types/content";
 
@@ -46,18 +46,10 @@ const SOCIAL_LINKS = [
 
 function Footer() {
   const { t } = useTranslation();
-  const getPath = useLocalizedPath();
+  const navItems = useNavItems();
   const institutionalItems = useTranslatedList<InstitutionalItem>(
     "footer.institutional"
   );
-
-  const navItems = [
-    { key: "home", path: getPath("home"), label: t("navbar.home"), end: true },
-    { key: "about", path: getPath("about"), label: t("navbar.about") },
-    { key: "papers", path: getPath("papers"), label: t("navbar.papers") },
-    { key: "partners", path: getPath("partners"), label: t("navbar.partners") },
-    { key: "contact", path: getPath("contact"), label: t("navbar.contact") },
-  ];
 
   const contactLines = [
     {

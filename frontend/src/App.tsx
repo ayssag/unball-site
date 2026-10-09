@@ -39,25 +39,27 @@ function App() {
       >
         <Navbar />
         <SystemStatus />
-        <Routes>
-          <Route path="/" element={<Navigate to="/pt" replace />} />
-          <Route path="/:lang" element={<LanguageGuard />}>
-            {ROUTES.map(({ key, paths }) => {
-              const element = PAGES[key];
-              if (key === "home")
-                return <Route key={key} index element={element} />;
-              return SUPPORTED_LANGS.map((lang) => (
-                <Route
-                  key={`${key}-${lang}`}
-                  path={toRelative(paths[lang])}
-                  element={element}
-                />
-              ));
-            })}
+        <Box component="main" sx={{ flexGrow: 1 }}>
+          <Routes>
+            <Route path="/" element={<Navigate to="/pt" replace />} />
+            <Route path="/:lang" element={<LanguageGuard />}>
+              {ROUTES.map(({ key, paths }) => {
+                const element = PAGES[key];
+                if (key === "home")
+                  return <Route key={key} index element={element} />;
+                return SUPPORTED_LANGS.map((lang) => (
+                  <Route
+                    key={`${key}-${lang}`}
+                    path={toRelative(paths[lang])}
+                    element={element}
+                  />
+                ));
+              })}
+              <Route path="*" element={<Navigate to="/pt" replace />} />
+            </Route>
             <Route path="*" element={<Navigate to="/pt" replace />} />
-          </Route>
-          <Route path="*" element={<Navigate to="/pt" replace />} />
-        </Routes>
+          </Routes>
+        </Box>
         <Footer />
       </Box>
     </BrowserRouter>

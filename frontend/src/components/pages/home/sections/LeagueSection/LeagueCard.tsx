@@ -9,9 +9,7 @@ import {
 
 import { TagCard } from "@/components/common/TagCard";
 import { FlexBoxBetween } from "@/shared/styled";
-import type { LeagueItem, LeagueTrivia } from "@/types/content";
-
-export type { LeagueItem, LeagueTrivia };
+import type { LeagueItem } from "@/types/content";
 
 export type LeagueCardProps = {
   item: LeagueItem;

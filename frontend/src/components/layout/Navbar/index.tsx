@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import Logo from "@/assets/images/logos/unball-logo.png";
+import { useNavItems } from "@/hooks/useNavItems";
 import { useLocalizedPath } from "@/i18n/useLocalizedPath";
 import { FlexBoxBetween } from "@/shared/styled";
 import { NAVBAR_HEIGHT } from "@/theme";
@@ -23,6 +24,7 @@ import { NavButton } from "./NavButton";
 function Navbar() {
   const { t } = useTranslation();
   const getPath = useLocalizedPath();
+  const navItems = useNavItems();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -33,14 +35,6 @@ function Navbar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const navItems = [
-    { key: "home", path: getPath("home"), label: t("navbar.home"), end: true },
-    { key: "about", path: getPath("about"), label: t("navbar.about") },
-    { key: "papers", path: getPath("papers"), label: t("navbar.papers") },
-    { key: "partners", path: getPath("partners"), label: t("navbar.partners") },
-    { key: "contact", path: getPath("contact"), label: t("navbar.contact") },
-  ];
 
   return (
     <Box
