@@ -7,6 +7,7 @@ import { BrowserRouter, Navigate,Route, Routes } from "react-router-dom";
 import LanguageGuard from "@/i18n/LanguageGuard";
 import { type RouteKey,ROUTES, SUPPORTED_LANGS } from "@/i18n/routesMap";
 
+import Footer from "./components/layout/Footer";
 import Navbar from "./components/layout/Navbar";
 import SystemStatus from "./components/layout/SystemStatus";
 import About from "./components/pages/about";
@@ -23,7 +24,6 @@ const PAGES: Record<RouteKey, ReactElement> = {
   contact: <Contact />,
 };
 
-/** Caminho relativo ao segmento `/:lang` (ex.: "/pt/sobre-nos" -> "sobre-nos"). */
 const toRelative = (path: string) => path.split("/").slice(2).join("/");
 
 function App() {
@@ -58,6 +58,7 @@ function App() {
           </Route>
           <Route path="*" element={<Navigate to="/pt" replace />} />
         </Routes>
+        <Footer/>
       </Box>
     </BrowserRouter>
   );

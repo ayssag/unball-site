@@ -1,10 +1,3 @@
-/**
- * Tipos de domínio do conteúdo do site.
- *
- * Estes formatos descrevem os objetos estruturados lidos dos arquivos de
- * tradução (`t(key, { returnObjects: true })`) e são compartilhados entre
- * seções e componentes.
- */
 
 export type AchievementIcon = "trophy" | "medal";
 
@@ -32,7 +25,6 @@ export type LeagueItem = {
 export type PaperItem = {
   title: string;
   authors: string[];
-  /** Data em formato ISO (ex.: "2024-05-10"), convertida com `new Date()`. */
   date: string;
   abstract: string;
   url: string;
@@ -49,7 +41,12 @@ export type PartnerItem = {
 
 export type WorkAreaItem = {
   title: string;
-  /** Chave do ícone em `iconMap` (RobocupSection). */
   icon: string;
   description: string;
 };
+
+export type InstitutionalItem = {
+  label: string;
+  href: string;
+};
+
