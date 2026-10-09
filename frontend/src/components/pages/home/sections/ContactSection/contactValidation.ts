@@ -31,12 +31,12 @@ export function validateContactForm(
 
   fields.forEach((field) => {
     if (!formData[field].trim()) {
-      fieldErrors[field] = t("pages.home.contact.form.errors.requiredField");
+      fieldErrors[field] = t("domain.contact.form.errors.requiredField");
     }
   });
 
   if (formData.email.trim() && !emailRegex.test(formData.email.trim())) {
-    fieldErrors.email = t("pages.home.contact.form.errors.invalidEmail");
+    fieldErrors.email = t("domain.contact.form.errors.invalidEmail");
   }
 
   let formError: string | undefined;
@@ -44,9 +44,9 @@ export function validateContactForm(
   if (Object.keys(fieldErrors).length > 0) {
     const hasEmptyField = fields.some((f) => !formData[f].trim());
     if (hasEmptyField) {
-      formError = t("pages.home.contact.form.errors.missingFields");
+      formError = t("domain.contact.form.errors.missingFields");
     } else if (fieldErrors.email) {
-      formError = t("pages.home.contact.form.errors.invalidEmailFormat");
+      formError = t("domain.contact.form.errors.invalidEmailFormat");
     }
   }
 

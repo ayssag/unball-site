@@ -10,7 +10,7 @@ import { AchievementCarousel } from "./AchievementCarousel";
 function AchievementsSection() {
   const { t } = useTranslation();
   const achievementItems = useTranslatedList<AchievementItem>(
-    "pages.home.achievements.items"
+    "domain.achievements.items"
   );
 
   return (

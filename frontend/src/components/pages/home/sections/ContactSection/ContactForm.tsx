@@ -103,7 +103,7 @@ function ContactForm() {
   const alertSeverity =
     status === "success" ? "success" : status === "error" ? "error" : null;
   const alertMessage =
-    status === "success" ? t("pages.home.contact.form.success") : formError;
+    status === "success" ? t("domain.contact.form.success") : formError;
 
   return (
     <Card
@@ -139,7 +139,7 @@ function ContactForm() {
         <Box component="form" onSubmit={handleSubmit} noValidate>
           <Stack spacing={3}>
             <StyledTextField
-              value={t("pages.home.contact.form.command")}
+              value={t("domain.contact.form.command")}
               slotProps={{
                 input: {
                   readOnly: true,
@@ -168,8 +168,8 @@ function ContactForm() {
             )}
 
             <StyledTextField
-              label={t("pages.home.contact.form.name")}
-              placeholder={t("pages.home.contact.form.namePlaceholder")}
+              label={t("domain.contact.form.name")}
+              placeholder={t("domain.contact.form.namePlaceholder")}
               name="name"
               value={formData.name}
               onChange={handleChange}
@@ -179,8 +179,8 @@ function ContactForm() {
             />
 
             <StyledTextField
-              label={t("pages.home.contact.form.email")}
-              placeholder={t("pages.home.contact.form.emailPlaceholder")}
+              label={t("domain.contact.form.email")}
+              placeholder={t("domain.contact.form.emailPlaceholder")}
               name="email"
               type="email"
               value={formData.email}
@@ -191,7 +191,7 @@ function ContactForm() {
             />
 
             <StyledTextField
-              label={t("pages.home.contact.form.subject")}
+              label={t("domain.contact.form.subject")}
               select
               name="subject"
               value={formData.subject}
@@ -205,18 +205,18 @@ function ContactForm() {
                 disabled
                 sx={{ color: alpha(theme.palette.text.primary, 0.4) }}
               >
-                <em>{t("pages.home.contact.form.subjectPlaceholder")}</em>
+                <em>{t("domain.contact.form.subjectPlaceholder")}</em>
               </MenuItem>
               {SUBJECT_OPTIONS.map((option) => (
                 <MenuItem key={option} value={option}>
-                  {t(`pages.home.contact.form.subjectOptions.${option}`)}
+                  {t(`domain.contact.form.subjectOptions.${option}`)}
                 </MenuItem>
               ))}
             </StyledTextField>
 
             <StyledTextField
-              label={t("pages.home.contact.form.message")}
-              placeholder={t("pages.home.contact.form.messagePlaceholder")}
+              label={t("domain.contact.form.message")}
+              placeholder={t("domain.contact.form.messagePlaceholder")}
               name="message"
               value={formData.message}
               onChange={handleChange}
@@ -245,10 +245,10 @@ function ContactForm() {
                     sx={{ alignItems: "center" }}
                   >
                     <CircularProgress size={16} color="inherit" />
-                    <span>{t("pages.home.contact.form.sending")}</span>
+                    <span>{t("domain.contact.form.sending")}</span>
                   </Stack>
                 ) : (
-                  t("pages.home.contact.form.submit")
+                  t("domain.contact.form.submit")
                 )}
               </Button>
             </Box>

@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
-import unballLogo from "@/assets/images/logos/unball-logo-vector.svg";
+import Logo from "@/assets/images/logos/unball-logo-vector.svg";
 import { SectionHeader } from "@/components/common/SectionHeader";
 import { BoxSection, FlexBoxBetween } from "@/shared/styled";
 
@@ -19,7 +19,7 @@ function AboutSection() {
       >
         <Box
           component="img"
-          src={unballLogo}
+          src={Logo}
           alt={t("navbar.logoAlt", "UnBall Logo")}
           sx={{
             width: { xs: "180px", sm: "240px", md: "280px" },
@@ -31,7 +31,7 @@ function AboutSection() {
         <SectionHeader
           subtitle={t("pages.home.about.subtitle")}
           title={t("pages.home.about.title")}
-          description={t("pages.home.about.description")}
+          description={t("domain.about.description")}
           sx={{ maxWidth: { md: "50%" } }}
         />
       </FlexBoxBetween>

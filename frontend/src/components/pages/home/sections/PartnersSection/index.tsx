@@ -10,9 +10,7 @@ import { PartnerCard } from "./PartnerCard";
 
 function PartnersSection() {
   const { t } = useTranslation();
-  const partnerItems = useTranslatedList<PartnerItem>(
-    "pages.home.partners.items"
-  );
+  const partnerItems = useTranslatedList<PartnerItem>("domain.partners.items");
 
   return (
     <BoxSection>

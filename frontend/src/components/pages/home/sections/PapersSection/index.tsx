@@ -13,7 +13,7 @@ import { PaperCard } from "./PaperCard";
 function PapersSection() {
   const { t } = useTranslation();
   const getPath = useLocalizedPath();
-  const paperItems = useTranslatedList<PaperItem>("pages.home.papers.items");
+  const paperItems = useTranslatedList<PaperItem>("domain.papers.items");
 
   const hasMore = paperItems.length > 2;
   const displayedItems = paperItems.slice(0, 2);
