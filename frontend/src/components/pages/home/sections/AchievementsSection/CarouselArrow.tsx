@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
-import { alpha,IconButton } from "@mui/material";
+import { alpha, IconButton } from "@mui/material";
 
 export type ArrowDirection = "left" | "right";
 

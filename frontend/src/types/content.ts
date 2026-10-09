@@ -1,4 +1,3 @@
-
 export type AchievementIcon = "trophy" | "medal";
 
 export type AchievementItem = {
@@ -49,4 +48,3 @@ export type InstitutionalItem = {
   label: string;
   href: string;
 };
-

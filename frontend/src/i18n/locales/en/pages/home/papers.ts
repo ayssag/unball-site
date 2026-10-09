@@ -3,6 +3,7 @@ export const papers = {
   subtitle: "// SCHOLARLY WORKS",
   ctaMore: "View more publications",
   yearBadgeText: "YEAR",
+  authorsLabel: "AUTHORS:",
   items: [
     {
       title:

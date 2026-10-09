@@ -1,4 +1,4 @@
-import { Box, type SxProps, type Theme,Typography } from "@mui/material";
+import { Box, type SxProps, type Theme, Typography } from "@mui/material";
 
 export type BadgePosition = "top" | "right" | "bottom" | "left";
 

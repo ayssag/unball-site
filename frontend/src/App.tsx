@@ -2,10 +2,10 @@ import "@/i18n";
 
 import { Box } from "@mui/material";
 import type { ReactElement } from "react";
-import { BrowserRouter, Navigate,Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import LanguageGuard from "@/i18n/LanguageGuard";
-import { type RouteKey,ROUTES, SUPPORTED_LANGS } from "@/i18n/routesMap";
+import { type RouteKey, ROUTES, SUPPORTED_LANGS } from "@/i18n/routesMap";
 
 import Footer from "./components/layout/Footer";
 import Navbar from "./components/layout/Navbar";
@@ -58,7 +58,7 @@ function App() {
           </Route>
           <Route path="*" element={<Navigate to="/pt" replace />} />
         </Routes>
-        <Footer/>
+        <Footer />
       </Box>
     </BrowserRouter>
   );

@@ -9,20 +9,19 @@ export const footer = {
     instagram: "INSTAGRAM",
     linkedin: "LINKEDIN",
   },
-  locationValue:
-    "Faculty of Technology, University of Brasília, Brasília - DF",
+  locationValue: "Faculty of Technology, University of Brasília, Brasília - DF",
   institutional: [
     {
       label: "University of Brasília",
-      href: "https://www.unb.br/"
+      href: "https://www.unb.br/",
     },
     {
       label: "Faculty of Technology",
-      href: "http://ft.unb.br"
+      href: "http://ft.unb.br",
     },
     {
       label: "Institute of Exact Sciences",
-      href: "https://exatas.unb.br"
+      href: "https://exatas.unb.br",
     },
   ],
 };

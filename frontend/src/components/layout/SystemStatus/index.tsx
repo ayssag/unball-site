@@ -1,4 +1,4 @@
-import { alpha,Box, Typography, useMediaQuery } from "@mui/material";
+import { alpha, Box, Typography, useMediaQuery } from "@mui/material";
 
 import { useMousePosition } from "@/hooks/useMousePosition";
 import { useScrollPosition } from "@/hooks/useScrollPosition";

@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { alpha,styled } from "@mui/material/styles";
+import { alpha, styled } from "@mui/material/styles";
 
 export const FlexBoxBetween = styled(Box)({
   display: "flex",

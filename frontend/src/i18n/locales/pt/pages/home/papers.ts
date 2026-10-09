@@ -3,6 +3,7 @@ export const papers = {
   subtitle: "// PRODUÇÕES ACADÊMICAS",
   ctaMore: "Ver mais publicações",
   yearBadgeText: "ANO",
+  authorsLabel: "AUTORES:",
   items: [
     {
       title:

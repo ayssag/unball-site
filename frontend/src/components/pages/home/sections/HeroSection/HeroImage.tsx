@@ -1,6 +1,6 @@
 import { Box, useTheme } from "@mui/material";
 import type { ResponsiveStyleValue } from "@mui/system";
-import { useEffect,useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import defaultHeroImg from "@/assets/images/unbolinha/bolinha_sentado.png";
 

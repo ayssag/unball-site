@@ -7,4 +7,3 @@ export const pt = {
   footer,
   pages,
 };
-

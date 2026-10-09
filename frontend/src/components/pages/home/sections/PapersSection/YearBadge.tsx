@@ -1,4 +1,4 @@
-import { Stack,Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 export type YearBadgeProps = {

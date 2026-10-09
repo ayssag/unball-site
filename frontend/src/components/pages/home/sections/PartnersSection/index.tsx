@@ -1,4 +1,4 @@
-import { Grid,Stack } from "@mui/material";
+import { Grid, Stack } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 import { SectionHeader } from "@/components/common/SectionHeader";

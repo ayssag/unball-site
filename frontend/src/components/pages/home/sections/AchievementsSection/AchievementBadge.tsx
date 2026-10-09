@@ -2,7 +2,7 @@ import {
   EmojiEventsOutlined,
   WorkspacePremiumOutlined,
 } from "@mui/icons-material";
-import { alpha,Box, ButtonBase, Stack, Typography } from "@mui/material";
+import { alpha, Box, ButtonBase, Stack, Typography } from "@mui/material";
 import type { ResponsiveStyleValue } from "@mui/system";
 import type { ReactNode } from "react";
 

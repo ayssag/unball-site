@@ -14,15 +14,15 @@ export const footer = {
   institutional: [
     {
       label: "Universidade de Brasília",
-      href: "https://www.unb.br/"
+      href: "https://www.unb.br/",
     },
     {
       label: "Faculdade de Tecnologia",
-      href: "http://ft.unb.br"
+      href: "http://ft.unb.br",
     },
     {
       label: "Instituto de Ciências Exatas",
-      href: "https://exatas.unb.br"
+      href: "https://exatas.unb.br",
     },
   ],
 };

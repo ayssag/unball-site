@@ -9,6 +9,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 import { TagCard } from "@/components/common/TagCard";
 import type { PaperItem } from "@/types/content";
@@ -22,6 +23,8 @@ export type PaperCardProps = {
 };
 
 export function PaperCard({ item }: PaperCardProps) {
+  const { t } = useTranslation();
+
   return (
     <Card>
       <Box
@@ -49,9 +52,7 @@ export function PaperCard({ item }: PaperCardProps) {
                   }}
                 >
                   {item.tags &&
-                    item.tags.map((tag, index) => (
-                      <TagCard tag={tag} key={index} />
-                    ))}
+                    item.tags.map((tag) => <TagCard tag={tag} key={tag} />)}
                 </Box>
                 <Typography
                   variant="h3"
@@ -71,7 +72,7 @@ export function PaperCard({ item }: PaperCardProps) {
                   fontSize: { xs: "0.75rem", sm: "0.875rem", md: "1rem" },
                 }}
               >
-                AUTORES:{" "}
+                {t("pages.home.papers.authorsLabel", "AUTORES:")}{" "}
                 {Array.isArray(item.authors) && item.authors.join(", ")}
               </Typography>
             }

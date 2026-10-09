@@ -5,13 +5,14 @@ import {
   Tune,
   Visibility,
 } from "@mui/icons-material";
-import { Grid,Stack, Typography } from "@mui/material";
-import { type ReactNode,useState } from "react";
+import { Grid, Stack, Typography } from "@mui/material";
+import { type ReactNode, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import { SectionHeader } from "@/components/common/SectionHeader";
 import { useTranslatedList } from "@/hooks/useTranslatedList";
 import { BoxSection, Panel } from "@/shared/styled";
+import type { WorkAreaItem } from "@/types/content";
 
 import WorkAreaBadge from "./WorkAreaBadge";
 import WorkAreaDescription from "./WorkAreaDescription";
@@ -23,8 +24,6 @@ const iconMap: Record<string, ReactNode> = {
   Settings: <Settings />,
   Tune: <Tune />,
 };
-
-import type { WorkAreaItem } from "@/types/content";
 
 function RobocupSection() {
   const { t } = useTranslation();
@@ -70,7 +69,7 @@ function RobocupSection() {
           </Typography>
           <Grid container spacing={1.5}>
             {workAreaItems.map((item, index) => (
-              <Grid key={index} size={{ xs: 6, sm: 4 }}>
+              <Grid key={item.title || index} size={{ xs: 6, sm: 4 }}>
                 <WorkAreaBadge
                   title={item.title}
                   icon={iconMap[item.icon] || null}

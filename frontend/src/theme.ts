@@ -3,7 +3,7 @@ import "@fontsource/bungee";
 import "@fontsource/space-mono";
 import "@fontsource-variable/trispace";
 
-import { alpha,createTheme } from "@mui/material/styles";
+import { alpha, createTheme } from "@mui/material/styles";
 
 export const FONTS = {
   body: "'Inter', sans-serif",

@@ -7,4 +7,3 @@ export const en = {
   footer,
   pages,
 };
-

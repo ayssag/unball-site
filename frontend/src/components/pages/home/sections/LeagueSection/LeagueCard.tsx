@@ -55,7 +55,7 @@ export function LeagueCard({ item }: LeagueCardProps) {
         subheader={
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mt: 2 }}>
             {item.tags &&
-              item.tags.map((tag, index) => <TagCard tag={tag} key={index} />)}
+              item.tags.map((tag) => <TagCard tag={tag} key={tag} />)}
           </Box>
         }
       />
